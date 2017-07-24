@@ -19,7 +19,7 @@ package com.vestrel00.daggerbutterknifemvp.util;
 import android.app.Fragment;
 
 import com.vestrel00.daggerbutterknifemvp.inject.PerChildFragment;
-import com.vestrel00.daggerbutterknifemvp.ui.common.BaseChildFragmentModule;
+import com.vestrel00.daggerbutterknifemvp.ui.common.view.BaseChildFragmentModule;
 
 import javax.inject.Inject;
 import javax.inject.Named;
