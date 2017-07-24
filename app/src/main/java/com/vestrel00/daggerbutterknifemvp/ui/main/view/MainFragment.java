@@ -23,7 +23,7 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.vestrel00.daggerbutterknifemvp.R;
-import com.vestrel00.daggerbutterknifemvp.ui.common.BaseFragment;
+import com.vestrel00.daggerbutterknifemvp.ui.common.view.BaseFragment;
 
 import javax.inject.Inject;
 
