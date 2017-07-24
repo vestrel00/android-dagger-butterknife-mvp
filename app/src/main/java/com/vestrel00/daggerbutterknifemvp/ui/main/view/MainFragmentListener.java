@@ -14,12 +14,12 @@
  * limitations under the License.
  */
 
-package com.vestrel00.daggerbutterknifemvp.ui.main;
+package com.vestrel00.daggerbutterknifemvp.ui.main.view;
 
 /**
  * Listener for {@link MainFragment} UI events.
  */
-interface MainFragmentListener {
+public interface MainFragmentListener {
 
     void onExample1Clicked();
 
