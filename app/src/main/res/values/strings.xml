@@ -25,6 +25,8 @@
     <string name="fragment">Fragment</string>
     <string name="fragment_a">Fragment A</string>
     <string name="fragment_b">Fragment B</string>
+    <string name="fragment_parent">Parent Fragment</string>
+    <string name="fragment_child">Child Fragment</string>
 
     <string name="do_something">Do something</string>
 </resources>
