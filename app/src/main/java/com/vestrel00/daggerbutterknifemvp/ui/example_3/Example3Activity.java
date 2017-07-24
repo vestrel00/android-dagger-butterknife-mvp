@@ -21,7 +21,7 @@ import android.support.annotation.Nullable;
 
 import com.vestrel00.daggerbutterknifemvp.R;
 import com.vestrel00.daggerbutterknifemvp.ui.common.BaseActivity;
-import com.vestrel00.daggerbutterknifemvp.ui.example_3.parent_fragment.Example3ParentFragment;
+import com.vestrel00.daggerbutterknifemvp.ui.example_3.parent_fragment.view.Example3ParentFragment;
 
 /**
  * Activity that contains a single fragment that contains a child fragment.
