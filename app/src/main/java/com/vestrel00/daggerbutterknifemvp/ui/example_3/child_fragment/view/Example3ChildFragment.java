@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package com.vestrel00.daggerbutterknifemvp.ui.example_3.child_fragment;
+package com.vestrel00.daggerbutterknifemvp.ui.example_3.child_fragment.view;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -23,33 +23,17 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 import com.vestrel00.daggerbutterknifemvp.R;
-import com.vestrel00.daggerbutterknifemvp.ui.common.BaseFragment;
-import com.vestrel00.daggerbutterknifemvp.util.PerActivityUtil;
-import com.vestrel00.daggerbutterknifemvp.util.PerChildFragmentUtil;
-import com.vestrel00.daggerbutterknifemvp.util.PerFragmentUtil;
-import com.vestrel00.daggerbutterknifemvp.util.SingletonUtil;
-
-import javax.inject.Inject;
+import com.vestrel00.daggerbutterknifemvp.ui.common.view.BaseViewFragment;
+import com.vestrel00.daggerbutterknifemvp.ui.example_3.child_fragment.presenter.Example3ChildPresenter;
 
 import butterknife.BindView;
 import butterknife.OnClick;
 
 /**
- * A fragment that contains a button that does something.
+ * A fragment implementation of {@link Example3ChildView}.
  */
-public final class Example3ChildFragment extends BaseFragment {
-
-    @Inject
-    SingletonUtil singletonUtil;
-
-    @Inject
-    PerActivityUtil perActivityUtil;
-
-    @Inject
-    PerFragmentUtil perFragmentUtil;
-
-    @Inject
-    PerChildFragmentUtil perChildFragmentUtil;
+public final class Example3ChildFragment extends BaseViewFragment<Example3ChildPresenter>
+        implements Example3ChildView {
 
     @BindView(R.id.some_text)
     TextView someText;
@@ -60,16 +44,14 @@ public final class Example3ChildFragment extends BaseFragment {
         return inflater.inflate(R.layout.example_3_child_fragment, container, false);
     }
 
-    @OnClick(R.id.do_something)
-    void onDoSomethingClicked() {
-        String something = singletonUtil.doSomething();
-        something += "\n" + perActivityUtil.doSomething();
-        something += "\n" + perFragmentUtil.doSomething();
-        something += "\n" + perChildFragmentUtil.doSomething();
-        showSomething(something);
+    @Override
+    public void showSomething(String something) {
+        childFragmentManager.hashCode();
+        someText.setText(something);
     }
 
-    private void showSomething(String something) {
-        someText.setText(something);
+    @OnClick(R.id.do_something)
+    void onDoSomethingClicked() {
+        presenter.onDoSomething();
     }
 }
