@@ -32,10 +32,13 @@ import com.vestrel00.daggerbutterknifemvp.util.SingletonUtil;
 
 import javax.inject.Inject;
 
+import butterknife.BindView;
+import butterknife.OnClick;
+
 /**
  * A fragment that contains a button that does something.
  */
-public final class Example3ParentFragment extends BaseFragment implements View.OnClickListener {
+public final class Example3ParentFragment extends BaseFragment {
 
     @Inject
     SingletonUtil singletonUtil;
@@ -46,7 +49,8 @@ public final class Example3ParentFragment extends BaseFragment implements View.O
     @Inject
     PerFragmentUtil perFragmentUtil;
 
-    private TextView someText;
+    @BindView(R.id.some_text)
+    TextView someText;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -61,24 +65,10 @@ public final class Example3ParentFragment extends BaseFragment implements View.O
         if (savedInstanceState == null) {
             addChildFragment(R.id.child_fragment_container, new Example3ChildFragment());
         }
-
-        // TODO (Butterknife) replace with butterknife view binding
-        someText = (TextView) view.findViewById(R.id.some_text);
-        view.findViewById(R.id.do_something).setOnClickListener(this);
     }
 
-    @Override
-    public void onClick(View v) {
-        switch (v.getId()) {
-            case R.id.do_something:
-                onDoSomethingClicked();
-                break;
-            default:
-                throw new IllegalArgumentException("Unhandled view " + v.getId());
-        }
-    }
-
-    private void onDoSomethingClicked() {
+    @OnClick(R.id.do_something)
+    void onDoSomethingClicked() {
         String something = singletonUtil.doSomething();
         something += "\n" + perActivityUtil.doSomething();
         something += "\n" + perFragmentUtil.doSomething();
