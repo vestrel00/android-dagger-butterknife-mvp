@@ -19,12 +19,12 @@ package com.vestrel00.daggerbutterknifemvp.ui.main;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
-import android.widget.Toast;
 
 import com.vestrel00.daggerbutterknifemvp.R;
 import com.vestrel00.daggerbutterknifemvp.ui.common.BaseActivity;
 import com.vestrel00.daggerbutterknifemvp.ui.example_1.Example1Activity;
 import com.vestrel00.daggerbutterknifemvp.ui.example_2.Example2Activity;
+import com.vestrel00.daggerbutterknifemvp.ui.example_3.Example3Activity;
 
 /**
  * The main activity that provides a way to navigate to all other activities.
@@ -55,7 +55,7 @@ public final class MainActivity extends BaseActivity implements MainFragmentList
 
     @Override
     public void onExample3Clicked() {
-        // TODO start example 3 activity
-        Toast.makeText(this, "Launch example 3", Toast.LENGTH_SHORT).show();
+        Intent intent = new Intent(this, Example3Activity.class);
+        startActivity(intent);
     }
 }
