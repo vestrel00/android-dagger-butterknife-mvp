@@ -22,6 +22,8 @@ import android.app.FragmentManager;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 
+import com.vestrel00.daggerbutterknifemvp.navigation.Navigator;
+
 import javax.inject.Inject;
 import javax.inject.Named;
 
@@ -39,6 +41,9 @@ import dagger.android.HasFragmentInjector;
  * so that we have to option to inherit from something else later on if needed.
  */
 public abstract class BaseActivity extends Activity implements HasFragmentInjector {
+
+    @Inject
+    protected Navigator navigator;
 
     @Inject
     @Named(BaseActivityModule.ACTIVITY_FRAGMENT_MANAGER)
