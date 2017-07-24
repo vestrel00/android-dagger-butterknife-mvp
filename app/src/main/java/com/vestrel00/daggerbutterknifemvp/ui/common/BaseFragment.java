@@ -19,10 +19,15 @@ package com.vestrel00.daggerbutterknifemvp.ui.common;
 import android.app.Fragment;
 import android.app.FragmentManager;
 import android.content.Context;
+import android.os.Bundle;
+import android.support.annotation.Nullable;
+import android.view.View;
 
 import javax.inject.Inject;
 import javax.inject.Named;
 
+import butterknife.ButterKnife;
+import butterknife.Unbinder;
 import dagger.android.AndroidInjection;
 import dagger.android.AndroidInjector;
 import dagger.android.DispatchingAndroidInjector;
@@ -53,11 +58,50 @@ public abstract class BaseFragment extends Fragment implements HasFragmentInject
     @Inject
     DispatchingAndroidInjector<Fragment> fragmentInjector;
 
+    @Nullable
+    private Unbinder viewUnbinder;
+
     @Override
     public void onAttach(Context context) {
         AndroidInjection.inject(this);
         super.onAttach(context);
     }
+
+    @Override
+    public void onViewStateRestored(Bundle savedInstanceState) {
+        super.onViewStateRestored(savedInstanceState);
+        View view = getView();
+        if (view != null) {
+            /*
+             * Bind the views here instead of in onViewCreated so that view state changed listeners
+             * are not invoked automatically without user interaction.
+             *
+             * If we bind before this method (e.g. onViewCreated), then any checked changed
+             * listeners bound by ButterKnife will be invoked during fragment recreation (since
+             * Android itself saves and restores the views' states.
+             *
+             * The lifecycle order is as follows (same if added via xml or java or if retain
+             * instance is true):
+             *
+             * onAttach
+             * onCreateView
+             * onViewCreated
+             * onActivityCreated
+             * onViewStateRestored
+             * onResume
+             */
+            viewUnbinder = ButterKnife.bind(this, getView());
+        }
+    }
+
+    @Override
+    public void onDestroyView() {
+        if (viewUnbinder != null) {
+            viewUnbinder.unbind();
+        }
+        super.onDestroyView();
+    }
+
 
     @Override
     public final AndroidInjector<Fragment> fragmentInjector() {

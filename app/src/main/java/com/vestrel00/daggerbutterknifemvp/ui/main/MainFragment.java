@@ -27,6 +27,8 @@ import com.vestrel00.daggerbutterknifemvp.ui.common.BaseFragment;
 
 import javax.inject.Inject;
 
+import butterknife.OnClick;
+
 /**
  * Displays a set of buttons for the other activities.
  * <p>
@@ -45,7 +47,7 @@ import javax.inject.Inject;
  * The activity only acts as the host to 1 or more fragments for inter-fragment communication. All
  * views and logic are in fragments.
  */
-public final class MainFragment extends BaseFragment implements View.OnClickListener {
+public final class MainFragment extends BaseFragment {
 
     @Inject
     MainFragmentListener listener;
@@ -56,42 +58,18 @@ public final class MainFragment extends BaseFragment implements View.OnClickList
         return inflater.inflate(R.layout.main_fragment, container, false);
     }
 
-    @Override
-    public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
-        super.onViewCreated(view, savedInstanceState);
-
-        // TODO (Butterknife) replace with butterknife view binding
-        view.findViewById(R.id.example_1).setOnClickListener(this);
-        view.findViewById(R.id.example_2).setOnClickListener(this);
-        view.findViewById(R.id.example_3).setOnClickListener(this);
-    }
-
-    @Override
-    public void onClick(View v) {
-        switch (v.getId()) {
-            case R.id.example_1:
-                onExample1Clicked();
-                break;
-            case R.id.example_2:
-                onExample2Clicked();
-                break;
-            case R.id.example_3:
-                onExample3Clicked();
-                break;
-            default:
-                throw new IllegalArgumentException("Unhandled view " + v.getId());
-        }
-    }
-
-    private void onExample1Clicked() {
+    @OnClick(R.id.example_1)
+    void onExample1Clicked() {
         listener.onExample1Clicked();
     }
 
-    private void onExample2Clicked() {
+    @OnClick(R.id.example_2)
+    void onExample2Clicked() {
         listener.onExample2Clicked();
     }
 
-    private void onExample3Clicked() {
+    @OnClick(R.id.example_3)
+    void onExample3Clicked() {
         listener.onExample3Clicked();
     }
 }
