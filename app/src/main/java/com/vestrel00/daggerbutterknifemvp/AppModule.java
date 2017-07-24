@@ -16,12 +16,33 @@
 
 package com.vestrel00.daggerbutterknifemvp;
 
+import android.app.Activity;
+
+import com.vestrel00.daggerbutterknifemvp.ui.main.MainActivity;
+import com.vestrel00.daggerbutterknifemvp.ui.main.MainActivitySubcomponent;
+
+import dagger.Binds;
 import dagger.Module;
+import dagger.android.ActivityKey;
 import dagger.android.AndroidInjectionModule;
+import dagger.android.AndroidInjector;
+import dagger.multibindings.IntoMap;
 
 /**
  * Provides application-wide dependencies.
  */
-@Module(includes = AndroidInjectionModule.class)
+@Module(includes = AndroidInjectionModule.class,
+        subcomponents = MainActivitySubcomponent.class)
 abstract class AppModule {
+
+    /**
+     * Provides the injector for the {@link MainActivity}, which has access to the dependencies
+     * provided by this application instance (singleton scoped objects).
+     */
+    // TODO (ContributesAndroidInjector) remove this in favor of @ContributesAndroidInjector
+    @Binds
+    @IntoMap
+    @ActivityKey(MainActivity.class)
+    abstract AndroidInjector.Factory<? extends Activity>
+    mainActivityInjectorFactory(MainActivitySubcomponent.Builder builder);
 }
