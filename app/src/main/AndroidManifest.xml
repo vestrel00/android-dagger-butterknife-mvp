@@ -30,5 +30,9 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
+        <activity
+            android:name=".ui.example_1.Example1Activity"
+            android:label="@string/example_1" />
     </application>
 </manifest>
