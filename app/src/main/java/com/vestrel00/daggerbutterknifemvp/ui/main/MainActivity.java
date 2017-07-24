@@ -24,6 +24,7 @@ import android.widget.Toast;
 import com.vestrel00.daggerbutterknifemvp.R;
 import com.vestrel00.daggerbutterknifemvp.ui.common.BaseActivity;
 import com.vestrel00.daggerbutterknifemvp.ui.example_1.Example1Activity;
+import com.vestrel00.daggerbutterknifemvp.ui.example_2.Example2Activity;
 
 /**
  * The main activity that provides a way to navigate to all other activities.
@@ -48,8 +49,8 @@ public final class MainActivity extends BaseActivity implements MainFragmentList
 
     @Override
     public void onExample2Clicked() {
-        // TODO start example 2 activity
-        Toast.makeText(this, "Launch example 2", Toast.LENGTH_SHORT).show();
+        Intent intent = new Intent(this, Example2Activity.class);
+        startActivity(intent);
     }
 
     @Override

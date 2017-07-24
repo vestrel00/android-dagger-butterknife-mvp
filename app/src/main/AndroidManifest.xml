@@ -34,5 +34,9 @@
         <activity
             android:name=".ui.example_1.Example1Activity"
             android:label="@string/example_1" />
+
+        <activity
+            android:name=".ui.example_2.Example2Activity"
+            android:label="@string/example_2" />
     </application>
 </manifest>

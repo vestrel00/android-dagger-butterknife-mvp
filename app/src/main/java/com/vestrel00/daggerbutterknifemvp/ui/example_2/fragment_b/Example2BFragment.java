@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package com.vestrel00.daggerbutterknifemvp.ui.example_1.fragment;
+package com.vestrel00.daggerbutterknifemvp.ui.example_2.fragment_b;
 
 import android.os.Bundle;
 import android.support.annotation.Nullable;
@@ -34,7 +34,7 @@ import javax.inject.Inject;
 /**
  * A fragment that contains a button that does something.
  */
-public final class Example1Fragment extends BaseFragment implements View.OnClickListener {
+public final class Example2BFragment extends BaseFragment implements View.OnClickListener {
 
     @Inject
     SingletonUtil singletonUtil;
@@ -50,7 +50,7 @@ public final class Example1Fragment extends BaseFragment implements View.OnClick
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        return inflater.inflate(R.layout.example_1_fragment, container, false);
+        return inflater.inflate(R.layout.example_2_fragment_b, container, false);
     }
 
     @Override

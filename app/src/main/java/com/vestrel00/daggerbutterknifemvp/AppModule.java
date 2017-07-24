@@ -20,6 +20,8 @@ import android.app.Activity;
 
 import com.vestrel00.daggerbutterknifemvp.ui.example_1.Example1Activity;
 import com.vestrel00.daggerbutterknifemvp.ui.example_1.Example1ActivitySubcomponent;
+import com.vestrel00.daggerbutterknifemvp.ui.example_2.Example2Activity;
+import com.vestrel00.daggerbutterknifemvp.ui.example_2.Example2ActivitySubcomponent;
 import com.vestrel00.daggerbutterknifemvp.ui.main.MainActivity;
 import com.vestrel00.daggerbutterknifemvp.ui.main.MainActivitySubcomponent;
 
@@ -36,7 +38,8 @@ import dagger.multibindings.IntoMap;
 @Module(includes = AndroidInjectionModule.class,
         subcomponents = {
                 MainActivitySubcomponent.class,
-                Example1ActivitySubcomponent.class
+                Example1ActivitySubcomponent.class,
+                Example2ActivitySubcomponent.class
         })
 abstract class AppModule {
 
@@ -51,7 +54,6 @@ abstract class AppModule {
     abstract AndroidInjector.Factory<? extends Activity>
     mainActivityInjectorFactory(MainActivitySubcomponent.Builder builder);
 
-
     /**
      * Provides the injector for the {@link Example1Activity}, which has access to the dependencies
      * provided by this application instance (singleton scoped objects).
@@ -62,4 +64,15 @@ abstract class AppModule {
     @ActivityKey(Example1Activity.class)
     abstract AndroidInjector.Factory<? extends Activity>
     example1ActivityInjectorFactory(Example1ActivitySubcomponent.Builder builder);
+
+    /**
+     * Provides the injector for the {@link Example2Activity}, which has access to the dependencies
+     * provided by this application instance (singleton scoped objects).
+     */
+    // TODO (ContributesAndroidInjector) remove this in favor of @ContributesAndroidInjector
+    @Binds
+    @IntoMap
+    @ActivityKey(Example2Activity.class)
+    abstract AndroidInjector.Factory<? extends Activity>
+    example2ActivityInjectorFactory(Example2ActivitySubcomponent.Builder builder);
 }
