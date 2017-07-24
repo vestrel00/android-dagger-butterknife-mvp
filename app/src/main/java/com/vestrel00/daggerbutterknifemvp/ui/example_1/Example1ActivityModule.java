@@ -21,8 +21,8 @@ import android.app.Activity;
 import com.vestrel00.daggerbutterknifemvp.inject.PerActivity;
 import com.vestrel00.daggerbutterknifemvp.inject.PerFragment;
 import com.vestrel00.daggerbutterknifemvp.ui.common.BaseActivityModule;
-import com.vestrel00.daggerbutterknifemvp.ui.example_1.fragment.Example1Fragment;
-import com.vestrel00.daggerbutterknifemvp.ui.example_1.fragment.Example1FragmentModule;
+import com.vestrel00.daggerbutterknifemvp.ui.example_1.fragment.view.Example1Fragment;
+import com.vestrel00.daggerbutterknifemvp.ui.example_1.fragment.view.Example1FragmentModule;
 
 import dagger.Binds;
 import dagger.Module;

@@ -14,12 +14,13 @@
  * limitations under the License.
  */
 
-package com.vestrel00.daggerbutterknifemvp.ui.example_1.fragment;
+package com.vestrel00.daggerbutterknifemvp.ui.example_1.fragment.view;
 
 import android.app.Fragment;
 
 import com.vestrel00.daggerbutterknifemvp.inject.PerFragment;
-import com.vestrel00.daggerbutterknifemvp.ui.common.BaseFragmentModule;
+import com.vestrel00.daggerbutterknifemvp.ui.common.view.BaseFragmentModule;
+import com.vestrel00.daggerbutterknifemvp.ui.example_1.fragment.presenter.Example1PresenterModule;
 
 import javax.inject.Named;
 
@@ -31,6 +32,7 @@ import dagger.Module;
  */
 @Module(includes = {
         BaseFragmentModule.class,
+        Example1PresenterModule.class
 })
 public abstract class Example1FragmentModule {
 
@@ -46,4 +48,8 @@ public abstract class Example1FragmentModule {
     @Named(BaseFragmentModule.FRAGMENT)
     @PerFragment
     abstract Fragment fragment(Example1Fragment example1Fragment);
+
+    @Binds
+    @PerFragment
+    abstract Example1View example1View(Example1Fragment example1Fragment);
 }

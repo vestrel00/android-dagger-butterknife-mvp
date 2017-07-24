@@ -21,7 +21,7 @@ import android.support.annotation.Nullable;
 
 import com.vestrel00.daggerbutterknifemvp.R;
 import com.vestrel00.daggerbutterknifemvp.ui.common.BaseActivity;
-import com.vestrel00.daggerbutterknifemvp.ui.example_1.fragment.Example1Fragment;
+import com.vestrel00.daggerbutterknifemvp.ui.example_1.fragment.view.Example1Fragment;
 
 /**
  * Activity that contains a single Fragment.
