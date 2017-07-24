@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package com.vestrel00.daggerbutterknifemvp.ui.main;
+package com.vestrel00.daggerbutterknifemvp.ui.main.view;
 
 import android.app.Fragment;
 
@@ -30,7 +30,7 @@ import dagger.Module;
  * Provides main fragment dependencies.
  */
 @Module(includes = BaseFragmentModule.class)
-abstract class MainFragmentModule {
+public abstract class MainFragmentModule {
 
     /**
      * As per the contract specified in {@link BaseFragmentModule}; "This must be included in all

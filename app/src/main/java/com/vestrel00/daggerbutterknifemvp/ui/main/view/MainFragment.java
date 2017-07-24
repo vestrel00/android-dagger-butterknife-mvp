@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package com.vestrel00.daggerbutterknifemvp.ui.main;
+package com.vestrel00.daggerbutterknifemvp.ui.main.view;
 
 import android.os.Bundle;
 import android.support.annotation.Nullable;

@@ -21,6 +21,8 @@ import android.support.annotation.Nullable;
 
 import com.vestrel00.daggerbutterknifemvp.R;
 import com.vestrel00.daggerbutterknifemvp.ui.common.BaseActivity;
+import com.vestrel00.daggerbutterknifemvp.ui.main.view.MainFragment;
+import com.vestrel00.daggerbutterknifemvp.ui.main.view.MainFragmentListener;
 
 /**
  * The main activity that provides a way to navigate to all other activities.
