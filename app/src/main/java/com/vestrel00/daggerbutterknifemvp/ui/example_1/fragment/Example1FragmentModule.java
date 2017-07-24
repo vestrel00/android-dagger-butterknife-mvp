@@ -32,7 +32,7 @@ import dagger.Module;
 @Module(includes = {
         BaseFragmentModule.class,
 })
-abstract class Example1FragmentModule {
+public abstract class Example1FragmentModule {
 
     /**
      * As per the contract specified in {@link BaseFragmentModule}; "This must be included in all

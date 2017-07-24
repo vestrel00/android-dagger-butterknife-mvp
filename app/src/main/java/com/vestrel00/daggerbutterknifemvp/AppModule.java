@@ -16,77 +16,55 @@
 
 package com.vestrel00.daggerbutterknifemvp;
 
-import android.app.Activity;
-
+import com.vestrel00.daggerbutterknifemvp.inject.PerActivity;
 import com.vestrel00.daggerbutterknifemvp.ui.example_1.Example1Activity;
-import com.vestrel00.daggerbutterknifemvp.ui.example_1.Example1ActivitySubcomponent;
+import com.vestrel00.daggerbutterknifemvp.ui.example_1.Example1ActivityModule;
 import com.vestrel00.daggerbutterknifemvp.ui.example_2.Example2Activity;
-import com.vestrel00.daggerbutterknifemvp.ui.example_2.Example2ActivitySubcomponent;
+import com.vestrel00.daggerbutterknifemvp.ui.example_2.Example2ActivityModule;
 import com.vestrel00.daggerbutterknifemvp.ui.example_3.Example3Activity;
-import com.vestrel00.daggerbutterknifemvp.ui.example_3.Example3ActivitySubcomponent;
+import com.vestrel00.daggerbutterknifemvp.ui.example_3.Example3ActivityModule;
 import com.vestrel00.daggerbutterknifemvp.ui.main.MainActivity;
-import com.vestrel00.daggerbutterknifemvp.ui.main.MainActivitySubcomponent;
+import com.vestrel00.daggerbutterknifemvp.ui.main.MainActivityModule;
 
-import dagger.Binds;
 import dagger.Module;
-import dagger.android.ActivityKey;
 import dagger.android.AndroidInjectionModule;
-import dagger.android.AndroidInjector;
-import dagger.multibindings.IntoMap;
+import dagger.android.ContributesAndroidInjector;
 
 /**
  * Provides application-wide dependencies.
  */
-@Module(includes = AndroidInjectionModule.class,
-        subcomponents = {
-                MainActivitySubcomponent.class,
-                Example1ActivitySubcomponent.class,
-                Example2ActivitySubcomponent.class,
-                Example3ActivitySubcomponent.class
-        })
+@Module(includes = AndroidInjectionModule.class)
 abstract class AppModule {
 
     /**
      * Provides the injector for the {@link MainActivity}, which has access to the dependencies
      * provided by this application instance (singleton scoped objects).
      */
-    // TODO (ContributesAndroidInjector) remove this in favor of @ContributesAndroidInjector
-    @Binds
-    @IntoMap
-    @ActivityKey(MainActivity.class)
-    abstract AndroidInjector.Factory<? extends Activity>
-    mainActivityInjectorFactory(MainActivitySubcomponent.Builder builder);
+    @PerActivity
+    @ContributesAndroidInjector(modules = MainActivityModule.class)
+    abstract MainActivity mainActivityInjector();
 
     /**
      * Provides the injector for the {@link Example1Activity}, which has access to the dependencies
      * provided by this application instance (singleton scoped objects).
      */
-    // TODO (ContributesAndroidInjector) remove this in favor of @ContributesAndroidInjector
-    @Binds
-    @IntoMap
-    @ActivityKey(Example1Activity.class)
-    abstract AndroidInjector.Factory<? extends Activity>
-    example1ActivityInjectorFactory(Example1ActivitySubcomponent.Builder builder);
+    @PerActivity
+    @ContributesAndroidInjector(modules = Example1ActivityModule.class)
+    abstract Example1Activity example1ActivityInjector();
 
     /**
      * Provides the injector for the {@link Example2Activity}, which has access to the dependencies
      * provided by this application instance (singleton scoped objects).
      */
-    // TODO (ContributesAndroidInjector) remove this in favor of @ContributesAndroidInjector
-    @Binds
-    @IntoMap
-    @ActivityKey(Example2Activity.class)
-    abstract AndroidInjector.Factory<? extends Activity>
-    example2ActivityInjectorFactory(Example2ActivitySubcomponent.Builder builder);
+    @PerActivity
+    @ContributesAndroidInjector(modules = Example2ActivityModule.class)
+    abstract Example2Activity example2ActivityInjector();
 
     /**
      * Provides the injector for the {@link Example3Activity}, which has access to the dependencies
      * provided by this application instance (singleton scoped objects).
      */
-    // TODO (ContributesAndroidInjector) remove this in favor of @ContributesAndroidInjector
-    @Binds
-    @IntoMap
-    @ActivityKey(Example3Activity.class)
-    abstract AndroidInjector.Factory<? extends Activity>
-    example3ActivityInjectorFactory(Example3ActivitySubcomponent.Builder builder);
+    @PerActivity
+    @ContributesAndroidInjector(modules = Example3ActivityModule.class)
+    abstract Example3Activity example3ActivityInjector();
 }

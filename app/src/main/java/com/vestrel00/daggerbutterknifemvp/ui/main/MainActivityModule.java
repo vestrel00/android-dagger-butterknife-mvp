@@ -17,34 +17,28 @@
 package com.vestrel00.daggerbutterknifemvp.ui.main;
 
 import android.app.Activity;
-import android.app.Fragment;
 
 import com.vestrel00.daggerbutterknifemvp.inject.PerActivity;
+import com.vestrel00.daggerbutterknifemvp.inject.PerFragment;
 import com.vestrel00.daggerbutterknifemvp.ui.common.BaseActivityModule;
 
 import dagger.Binds;
 import dagger.Module;
-import dagger.android.AndroidInjector;
-import dagger.android.FragmentKey;
-import dagger.multibindings.IntoMap;
+import dagger.android.ContributesAndroidInjector;
 
 /**
  * Provides main activity dependencies.
  */
-@Module(includes = BaseActivityModule.class,
-        subcomponents = MainFragmentSubcomponent.class)
-abstract class MainActivityModule {
+@Module(includes = BaseActivityModule.class)
+public abstract class MainActivityModule {
 
     /**
      * Provides the injector for the {@link MainFragment}, which has access to the dependencies
      * provided by this activity and application instance (singleton scoped objects).
      */
-    // TODO (ContributesAndroidInjector) remove this in favor of @ContributesAndroidInjector
-    @Binds
-    @IntoMap
-    @FragmentKey(MainFragment.class)
-    abstract AndroidInjector.Factory<? extends Fragment>
-    mainFragmentInjectorFactory(MainFragmentSubcomponent.Builder builder);
+    @PerFragment
+    @ContributesAndroidInjector(modules = MainFragmentModule.class)
+    abstract MainFragment mainFragmentInjector();
 
     /**
      * As per the contract specified in {@link BaseActivityModule}; "This must be included in all
