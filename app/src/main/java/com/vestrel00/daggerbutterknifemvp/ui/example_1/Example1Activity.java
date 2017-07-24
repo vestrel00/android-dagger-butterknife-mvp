@@ -14,47 +14,27 @@
  * limitations under the License.
  */
 
-package com.vestrel00.daggerbutterknifemvp.ui.main;
+package com.vestrel00.daggerbutterknifemvp.ui.example_1;
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
-import android.widget.Toast;
 
 import com.vestrel00.daggerbutterknifemvp.R;
 import com.vestrel00.daggerbutterknifemvp.ui.common.BaseActivity;
-import com.vestrel00.daggerbutterknifemvp.ui.example_1.Example1Activity;
+import com.vestrel00.daggerbutterknifemvp.ui.example_1.fragment.Example1Fragment;
 
 /**
- * The main activity that provides a way to navigate to all other activities.
+ * Activity that contains a single Fragment.
  */
-public final class MainActivity extends BaseActivity implements MainFragmentListener {
+public final class Example1Activity extends BaseActivity {
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.main_activity);
+        setContentView(R.layout.example_1_activity);
 
         if (savedInstanceState == null) {
-            addFragment(R.id.fragment_container, new MainFragment());
+            addFragment(R.id.fragment_container, new Example1Fragment());
         }
-    }
-
-    @Override
-    public void onExample1Clicked() {
-        Intent intent = new Intent(this, Example1Activity.class);
-        startActivity(intent);
-    }
-
-    @Override
-    public void onExample2Clicked() {
-        // TODO start example 2 activity
-        Toast.makeText(this, "Launch example 2", Toast.LENGTH_SHORT).show();
-    }
-
-    @Override
-    public void onExample3Clicked() {
-        // TODO start example 3 activity
-        Toast.makeText(this, "Launch example 3", Toast.LENGTH_SHORT).show();
     }
 }
