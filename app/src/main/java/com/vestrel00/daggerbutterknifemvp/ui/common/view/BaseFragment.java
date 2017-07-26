@@ -55,7 +55,7 @@ public abstract class BaseFragment extends Fragment implements HasFragmentInject
     protected FragmentManager childFragmentManager;
 
     @Inject
-    DispatchingAndroidInjector<Fragment> fragmentInjector;
+    DispatchingAndroidInjector<Fragment> childFragmentInjector;
 
     private Unbinder viewUnbinder;
 
@@ -100,7 +100,7 @@ public abstract class BaseFragment extends Fragment implements HasFragmentInject
 
     @Override
     public final AndroidInjector<Fragment> fragmentInjector() {
-        return fragmentInjector;
+        return childFragmentInjector;
     }
 
     protected final void addChildFragment(int containerViewId, Fragment fragment) {
