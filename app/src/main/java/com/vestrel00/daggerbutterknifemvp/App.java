@@ -27,6 +27,12 @@ import dagger.android.HasActivityInjector;
 
 /**
  * The Android {@link Application}.
+ * <p>
+ * <b>DEPENDENCY INJECTION</b>
+ * We could extend {@link dagger.android.DaggerApplication} so we can get the boilerplate
+ * dagger code for free. However, we want to avoid inheritance (if possible and it is in this case)
+ * so that we have to option to inherit from something else later on if needed
+ * (e.g. if we need to override MultidexApplication).
  */
 public class App extends Application implements HasActivityInjector {
 
