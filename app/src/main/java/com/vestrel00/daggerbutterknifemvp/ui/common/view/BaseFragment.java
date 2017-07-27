@@ -86,7 +86,7 @@ public abstract class BaseFragment extends Fragment implements HasFragmentInject
              * onViewStateRestored
              * onResume
              */
-            viewUnbinder = ButterKnife.bind(this, getView());
+            viewUnbinder = ButterKnife.bind(this, view);
         }
     }
 
