@@ -20,6 +20,7 @@ import android.app.Activity;
 import android.app.Fragment;
 import android.app.FragmentManager;
 import android.os.Bundle;
+import android.support.annotation.IdRes;
 import android.support.annotation.Nullable;
 
 import com.vestrel00.daggerbutterknifemvp.navigation.Navigator;
@@ -63,7 +64,7 @@ public abstract class BaseActivity extends Activity implements HasFragmentInject
         return fragmentInjector;
     }
 
-    protected final void addFragment(int containerViewId, Fragment fragment) {
+    protected final void addFragment(@IdRes int containerViewId, Fragment fragment) {
         fragmentManager.beginTransaction()
                 .add(containerViewId, fragment)
                 .commit();
