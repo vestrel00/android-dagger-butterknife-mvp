@@ -14,7 +14,9 @@ This demonstrates dagger.android, butterknife, and MVP setup using 3 examples:
 
 Read the blogs for a complete walkthrough of this app:
 
-TODO
+1. [[HOW-TO] Android Dagger (2.10/2.11) Butterknife MVP (Part 1)](https://proandroiddev.com/how-to-android-dagger-2-10-2-11-butterknife-mvp-part-1-eb0f6b970fd)
+2. Part 2 coming soon
+3. Part 3 coming soon
 
 ## License
 
