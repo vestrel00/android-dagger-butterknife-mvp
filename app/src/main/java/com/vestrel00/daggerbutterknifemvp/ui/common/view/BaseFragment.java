@@ -78,16 +78,24 @@ public abstract class BaseFragment extends Fragment implements HasFragmentInject
              * are not invoked automatically without user interaction.
              *
              * If we bind before this method (e.g. onViewCreated), then any checked changed
-             * listeners bound by ButterKnife will be invoked during fragment recreation.
+             * listeners bound by ButterKnife will be invoked during fragment recreation (since
+             * Android itself saves and restores the views' states. Take a look at this gist for a
+             * concrete example: https://gist.github.com/vestrel00/982d585144423f728342787341fa001d
              *
-             * The lifecycle order is as follows (same if added via xml or java
-             * or if retain instance is true):
+             * The lifecycle order is as follows (same if added via xml or java or if retain
+             * instance is true):
              *
              * onAttach
              * onCreateView
+             * onViewCreated
              * onActivityCreated
              * onViewStateRestored
              * onResume
+             *
+             * Note that the onCreate (and other lifecycle events) are omitted on purpose. The
+             * caveat to this approach is that views, listeners, and resources bound by
+             * Butterknife will be null until onViewStatedRestored. Just be careful not to use any
+             * objects bound using Butterknife before onViewStateRestored.
              */
             viewUnbinder = ButterKnife.bind(this, view);
         }
