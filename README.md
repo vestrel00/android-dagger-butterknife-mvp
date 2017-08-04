@@ -1,10 +1,12 @@
 # Android Dagger ButterKnife MVP
 
-This is a sample app that is part of a blog post about how to build Android applications using 
+This is a sample app that is part of an 
+[article](https://proandroiddev.com/how-to-android-dagger-2-10-2-11-butterknife-mvp-part-1-eb0f6b970fd) 
+about how to build Android applications using 
 [Dagger 2](https://github.com/google/dagger) with the 
 [Dagger Android extension](https://github.com/google/dagger/tree/master/java/dagger/android), 
-[Butterknife](https://github.com/JakeWharton/butterknife), and Model-View-Presenter (MVP) pattern with
-support for Singleton, PerActivity, PerFragment, and PerChildFragment scopes.
+[Butterknife](https://github.com/JakeWharton/butterknife), and Model-View-Presenter (MVP) pattern 
+with support for Singleton, PerActivity, PerFragment, and PerChildFragment scopes.
 
 This demonstrates dagger.android, butterknife, and MVP setup using 3 examples:
 
@@ -14,9 +16,13 @@ This demonstrates dagger.android, butterknife, and MVP setup using 3 examples:
 
 Read the blogs for a complete walkthrough of this app:
 
-1. [[HOW-TO] Android Dagger (2.10/2.11) Butterknife MVP (Part 1)](https://proandroiddev.com/how-to-android-dagger-2-10-2-11-butterknife-mvp-part-1-eb0f6b970fd)
-2. Part 2 coming soon
-3. Part 3 coming soon
+1. Creating a project, from scratch, using the new Dagger.Android (2.11) dependency injection 
+   framework with support for @Singleton, @PerActivity , @PerFragment, and @PerChildFragment scopes. 
+   [ARTICLE](https://proandroiddev.com/how-to-android-dagger-2-10-2-11-butterknife-mvp-part-1-eb0f6b970fd)
+2. Using Butterknife (8.7) to replace a lot of handwritten boilerplate view binding code. 
+   [ARTICLE](https://proandroiddev.com/how-to-android-dagger-2-10-2-11-butterknife-mvp-part-2-6eaf60965df7)
+3. Restructuring the code to Model-View-Presenter (MVP) to increase testability, maintainability, 
+   and scalability. *(coming soon)*
 
 ## License
 
