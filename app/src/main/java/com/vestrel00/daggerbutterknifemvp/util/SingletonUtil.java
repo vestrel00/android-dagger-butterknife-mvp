@@ -16,6 +16,8 @@
 
 package com.vestrel00.daggerbutterknifemvp.util;
 
+import android.app.Application;
+
 import javax.inject.Inject;
 import javax.inject.Singleton;
 
@@ -29,15 +31,18 @@ import javax.inject.Singleton;
 @Singleton
 public final class SingletonUtil {
 
+    private final Application application;
+
     @Inject
-    SingletonUtil() {
+    SingletonUtil(Application application) {
+        this.application = application;
     }
 
     /**
      * @return the result of the work done here as a string. For this example, this returns its
-     * {@link #hashCode()}.
+     * {@link #hashCode()} and the application's {@link #hashCode()}.
      */
     public String doSomething() {
-        return "SingletonUtil: " + hashCode();
+        return "SingletonUtil: " + hashCode() + ", Application: " + application.hashCode();
     }
 }
