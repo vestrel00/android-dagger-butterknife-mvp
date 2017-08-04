@@ -33,7 +33,10 @@ import dagger.android.ContributesAndroidInjector;
 /**
  * Provides application-wide dependencies.
  */
-@Module(includes = AndroidInjectionModule.class)
+@Module(includes = {
+        AndroidInjectionModule.class,
+        ApplicationProviderModule.class
+})
 abstract class AppModule {
 
     /**
