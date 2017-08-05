@@ -16,6 +16,8 @@
 
 package com.vestrel00.daggerbutterknifemvp;
 
+import android.app.Application;
+
 import com.vestrel00.daggerbutterknifemvp.inject.PerActivity;
 import com.vestrel00.daggerbutterknifemvp.ui.example_1.Example1Activity;
 import com.vestrel00.daggerbutterknifemvp.ui.example_1.Example1ActivityModule;
@@ -26,6 +28,7 @@ import com.vestrel00.daggerbutterknifemvp.ui.example_3.Example3ActivityModule;
 import com.vestrel00.daggerbutterknifemvp.ui.main.MainActivity;
 import com.vestrel00.daggerbutterknifemvp.ui.main.MainActivityModule;
 
+import dagger.Binds;
 import dagger.Module;
 import dagger.android.AndroidInjectionModule;
 import dagger.android.ContributesAndroidInjector;
@@ -35,6 +38,9 @@ import dagger.android.ContributesAndroidInjector;
  */
 @Module(includes = AndroidInjectionModule.class)
 abstract class AppModule {
+
+    @Binds
+    abstract Application application(App main);
 
     /**
      * Provides the injector for the {@link MainActivity}, which has access to the dependencies
