@@ -23,6 +23,15 @@ public abstract class BaseActivityModule {
 
     @Binds
     @PerActivity
+    /*
+     * PerActivity annotation isn't necessary since Activity instance is unique but is here for
+     * convention. In general, providing Application, Activity, Fragment, BroadcastReceiver,
+     * etc does not require scoped annotations since they are the components being injected and
+     * their instance is unique.
+     *
+     * However, having a scope annotation makes the module easier to read. We wouldn't have to look
+     * at what is being provided in order to understand its scope.
+     */
     abstract Context activityContext(Activity activity);
 
     @Provides
