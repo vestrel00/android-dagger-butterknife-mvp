@@ -19,7 +19,7 @@ package com.vestrel00.daggerbutterknifemvp;
 import android.app.Application;
 
 import dagger.android.AndroidInjector;
-import dagger.android.support.DaggerApplication;
+import dagger.android.DaggerApplication;
 
 /**
  * The Android {@link Application}.

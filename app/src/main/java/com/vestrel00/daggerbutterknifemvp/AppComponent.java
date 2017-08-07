@@ -22,16 +22,12 @@ import javax.inject.Singleton;
 
 import dagger.Component;
 import dagger.android.AndroidInjector;
-import dagger.android.support.AndroidSupportInjectionModule;
 
 /**
  * Injects application dependencies.
  */
 @Singleton
-@Component(modules = {
-        AndroidSupportInjectionModule.class,
-        AppModule.class
-})
+@Component(modules = AppModule.class)
 interface AppComponent extends AndroidInjector<App> {
     /**
      * The builder for this component that allows the {@link Application} instance to be provided.
