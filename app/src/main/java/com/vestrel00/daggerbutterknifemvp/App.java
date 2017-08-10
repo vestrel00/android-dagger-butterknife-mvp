@@ -16,10 +16,14 @@
 
 package com.vestrel00.daggerbutterknifemvp;
 
+import android.app.Activity;
 import android.app.Application;
 
+import javax.inject.Inject;
+
 import dagger.android.AndroidInjector;
-import dagger.android.DaggerApplication;
+import dagger.android.DispatchingAndroidInjector;
+import dagger.android.HasActivityInjector;
 
 /**
  * The Android {@link Application}.
@@ -30,15 +34,25 @@ import dagger.android.DaggerApplication;
  * so that we have to option to inherit from something else later on if needed
  * (e.g. if we need to override MultidexApplication).
  */
-public class App extends DaggerApplication {
+public class App extends Application implements HasActivityInjector {
+
+    @Inject
+    DispatchingAndroidInjector<Activity> activityInjector;
 
     @Override
     public void onCreate() {
         super.onCreate();
+        inject();
     }
 
     @Override
-    protected AndroidInjector<? extends DaggerApplication> applicationInjector() {
-        return DaggerAppComponent.builder().create(this);
+    public AndroidInjector<Activity> activityInjector() {
+        return activityInjector;
+    }
+
+    private void inject() {
+        DaggerAppComponent.builder()
+                .create(this)
+                .inject(this);
     }
 }
