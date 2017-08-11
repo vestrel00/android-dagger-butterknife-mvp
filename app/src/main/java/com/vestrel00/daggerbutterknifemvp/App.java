@@ -52,8 +52,7 @@ public class App extends Application implements HasActivityInjector {
 
     private void inject() {
         DaggerAppComponent.builder()
-                .application(this)
-                .build()
+                .create(this)
                 .inject(this);
     }
 }

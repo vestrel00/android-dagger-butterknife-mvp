@@ -20,28 +20,21 @@ import android.app.Application;
 
 import javax.inject.Singleton;
 
-import dagger.BindsInstance;
 import dagger.Component;
+import dagger.android.AndroidInjector;
 
 /**
  * Injects application dependencies.
  */
 @Singleton
 @Component(modules = AppModule.class)
-interface AppComponent {
-    void inject(App app);
-
+interface AppComponent extends AndroidInjector<App> {
     /**
      * The builder for this component that allows the {@link Application} instance to be provided.
      * Providing the {@link Application} instance in the {@link AppModule} using and abstract
      * {@link dagger.Binds} method does not work.
      */
     @Component.Builder
-    interface Builder {
-
-        @BindsInstance
-        Builder application(Application application);
-
-        AppComponent build();
+    abstract class Builder extends AndroidInjector.Builder<App> {
     }
 }
