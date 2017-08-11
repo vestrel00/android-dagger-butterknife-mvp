@@ -32,7 +32,6 @@ import dagger.android.HasActivityInjector;
  * We could extend {@link dagger.android.DaggerApplication} so we can get the boilerplate
  * dagger code for free. However, we want to avoid inheritance (if possible and it is in this case)
  * so that we have to option to inherit from something else later on if needed
- * (e.g. if we need to override MultidexApplication).
  */
 public class App extends Application implements HasActivityInjector {
 
@@ -42,7 +41,7 @@ public class App extends Application implements HasActivityInjector {
     @Override
     public void onCreate() {
         super.onCreate();
-        inject();
+        DaggerAppComponent.builder().create(this).inject(this);
     }
 
     @Override
@@ -50,9 +49,4 @@ public class App extends Application implements HasActivityInjector {
         return activityInjector;
     }
 
-    private void inject() {
-        DaggerAppComponent.builder()
-                .create(this)
-                .inject(this);
-    }
 }
