@@ -37,8 +37,18 @@ public abstract class BaseViewFragment<T extends Presenter> extends BaseFragment
     @Override
     public void onViewStateRestored(Bundle savedInstanceState) {
         super.onViewStateRestored(savedInstanceState);
-        // Only start the presenter when the views have been bound.
-        // See BaseFragment.onViewStateRestored
+        /*
+         * The Presenter.onStart method is called in onViewStateRestored so that the Fragment’s
+         * views are bound before the presentation begins. This ensures that no NullPointerException
+         * occurs if the Presenter calls an MVPView method that uses a bound view.
+         *
+         * Furthermore, Fragments that do not return a non-null View in onCreateView will result in
+         * onViewStateRestored not being called. This results in Presenter.onStart not being
+         * invoked. Therefore, no-UI Fragments do not support Presenter-View pairs. We could modify
+         * our code to support Presenter-View pairs in no-UI Fragments if needed. However, I will
+         * keep things as is since I do not consider it appropriate to have a Presenter-View pair
+         * in a no-UI Fragment. Do feel free to disagree and refactor.
+         */
         presenter.onStart(savedInstanceState);
     }
 
