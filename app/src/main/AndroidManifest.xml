@@ -21,8 +21,7 @@
     <application
         android:name=".App"
         android:icon="@mipmap/ic_launcher"
-        android:label="@string/app_name"
-        android:theme="@android:style/Theme.Material">
+        android:label="@string/app_name">
 
         <activity android:name=".ui.main.MainActivity">
             <intent-filter>
