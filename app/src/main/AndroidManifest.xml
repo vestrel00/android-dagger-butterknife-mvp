@@ -21,7 +21,10 @@
     <application
         android:name=".App"
         android:icon="@mipmap/ic_launcher"
-        android:label="@string/app_name">
+        android:label="@string/app_name"
+        android:theme="@style/Theme.AppCompat">
+
+        <!-- Theme.AppCompat (or descendant) is required for AppCompatActivity -->
 
         <activity android:name=".ui.main.MainActivity">
             <intent-filter>

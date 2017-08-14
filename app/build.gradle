@@ -25,7 +25,7 @@ android {
         versionCode 1
         versionName '1.0.0'
 
-        minSdkVersion 17
+        minSdkVersion 14
         targetSdkVersion 26
 
         testInstrumentationRunner = "android.support.test.runner.AndroidJUnitRunner"
@@ -37,6 +37,7 @@ dependencies {
     // However, that is a different topic.
     def daggerVersion = '2.11'
     def butterKnifeVersion = '8.7.0'
+    def supportVersion = '26.0.1'
 
     annotationProcessor "com.google.dagger:dagger-compiler:$daggerVersion"
     annotationProcessor "com.google.dagger:dagger-android-processor:$daggerVersion"
@@ -44,5 +45,7 @@ dependencies {
 
     compile "com.google.dagger:dagger:$daggerVersion"
     compile "com.google.dagger:dagger-android:$daggerVersion"
+    compile "com.google.dagger:dagger-android-support:$daggerVersion"
     compile "com.jakewharton:butterknife:$butterKnifeVersion"
+    compile "com.android.support:appcompat-v7:$supportVersion"
 }

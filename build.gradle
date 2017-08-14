@@ -30,5 +30,9 @@ allprojects {
     repositories {
         jcenter()
         mavenCentral()
+        // Required for dagger.android.support
+        maven {
+            url "https://maven.google.com"
+        }
     }
 }
