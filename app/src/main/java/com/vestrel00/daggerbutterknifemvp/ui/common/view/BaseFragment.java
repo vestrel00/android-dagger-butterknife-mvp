@@ -16,38 +16,36 @@
 
 package com.vestrel00.daggerbutterknifemvp.ui.common.view;
 
-import android.app.Activity;
-import android.app.Fragment;
-import android.app.FragmentManager;
 import android.content.Context;
-import android.os.Build;
 import android.os.Bundle;
 import android.support.annotation.IdRes;
 import android.support.annotation.Nullable;
+import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentManager;
 
 import javax.inject.Inject;
 import javax.inject.Named;
 
 import butterknife.ButterKnife;
 import butterknife.Unbinder;
-import dagger.android.AndroidInjection;
 import dagger.android.AndroidInjector;
 import dagger.android.DispatchingAndroidInjector;
-import dagger.android.HasFragmentInjector;
+import dagger.android.support.AndroidSupportInjection;
+import dagger.android.support.HasSupportFragmentInjector;
 
 /**
  * Abstract Fragment for all Fragments and child Fragments to extend. This contains some boilerplate
  * dependency injection code and activity {@link Context}.
  * <p>
  * <b>DEPENDENCY INJECTION</b>
- * We could extend {@link dagger.android.DaggerFragment} so we can get the boilerplate
+ * We could extend {@link dagger.android.support.DaggerFragment} so we can get the boilerplate
  * dagger code for free. However, we want to avoid inheritance (if possible and it is in this case)
  * so that we have to option to inherit from something else later on if needed.
  * <p>
  * <b>VIEW BINDING</b>
  * This fragment handles view bind and unbinding.
  */
-public abstract class BaseFragment extends Fragment implements HasFragmentInjector {
+public abstract class BaseFragment extends Fragment implements HasSupportFragmentInjector {
 
     @Inject
     protected Context activityContext;
@@ -63,23 +61,10 @@ public abstract class BaseFragment extends Fragment implements HasFragmentInject
     @Nullable
     private Unbinder viewUnbinder;
 
-    @SuppressWarnings("deprecation")
-    @Override
-    public void onAttach(Activity activity) {
-        if (Build.VERSION.SDK_INT < Build.VERSION_CODES.M) {
-            // Perform injection here before M, L (API 22) and below because onAttach(Context)
-            // is not yet available at L.
-            AndroidInjection.inject(this);
-        }
-        super.onAttach(activity);
-    }
-
     @Override
     public void onAttach(Context context) {
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
-            // Perform injection here for M (API 23) due to deprecation of onAttach(Activity).
-            AndroidInjection.inject(this);
-        }
+        // This is called even for API levels below 23.
+        AndroidSupportInjection.inject(this);
         super.onAttach(context);
     }
 
@@ -130,7 +115,7 @@ public abstract class BaseFragment extends Fragment implements HasFragmentInject
     }
 
     @Override
-    public final AndroidInjector<Fragment> fragmentInjector() {
+    public final AndroidInjector<Fragment> supportFragmentInjector() {
         return childFragmentInjector;
     }
 

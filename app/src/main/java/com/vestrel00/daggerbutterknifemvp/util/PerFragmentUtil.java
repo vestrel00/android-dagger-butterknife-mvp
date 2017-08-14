@@ -16,7 +16,7 @@
 
 package com.vestrel00.daggerbutterknifemvp.util;
 
-import android.app.Fragment;
+import android.support.v4.app.Fragment;
 
 import com.vestrel00.daggerbutterknifemvp.inject.PerFragment;
 import com.vestrel00.daggerbutterknifemvp.ui.common.view.BaseFragmentModule;

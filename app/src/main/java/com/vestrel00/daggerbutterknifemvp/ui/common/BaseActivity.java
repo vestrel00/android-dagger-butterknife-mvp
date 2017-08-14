@@ -16,12 +16,12 @@
 
 package com.vestrel00.daggerbutterknifemvp.ui.common;
 
-import android.app.Activity;
-import android.app.Fragment;
-import android.app.FragmentManager;
 import android.os.Bundle;
 import android.support.annotation.IdRes;
 import android.support.annotation.Nullable;
+import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentManager;
+import android.support.v7.app.AppCompatActivity;
 
 import com.vestrel00.daggerbutterknifemvp.navigation.Navigator;
 
@@ -31,17 +31,17 @@ import javax.inject.Named;
 import dagger.android.AndroidInjection;
 import dagger.android.AndroidInjector;
 import dagger.android.DispatchingAndroidInjector;
-import dagger.android.HasFragmentInjector;
+import dagger.android.support.HasSupportFragmentInjector;
 
 /**
  * Abstract Activity for all Activities to extend.
  * <p>
  * <b>DEPENDENCY INJECTION</b>
- * We could extend {@link dagger.android.DaggerActivity} so we can get the boilerplate
+ * We could extend {@link dagger.android.support.DaggerAppCompatActivity} so we can get the boilerplate
  * dagger code for free. However, we want to avoid inheritance (if possible and it is in this case)
  * so that we have to option to inherit from something else later on if needed.
  */
-public abstract class BaseActivity extends Activity implements HasFragmentInjector {
+public abstract class BaseActivity extends AppCompatActivity implements HasSupportFragmentInjector {
 
     @Inject
     protected Navigator navigator;
@@ -60,7 +60,7 @@ public abstract class BaseActivity extends Activity implements HasFragmentInject
     }
 
     @Override
-    public final AndroidInjector<Fragment> fragmentInjector() {
+    public final AndroidInjector<Fragment> supportFragmentInjector() {
         return fragmentInjector;
     }
 
