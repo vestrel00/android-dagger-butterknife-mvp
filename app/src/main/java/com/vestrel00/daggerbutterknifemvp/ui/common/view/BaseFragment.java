@@ -24,7 +24,6 @@ import android.os.Build;
 import android.os.Bundle;
 import android.support.annotation.IdRes;
 import android.support.annotation.Nullable;
-import android.view.View;
 
 import javax.inject.Inject;
 import javax.inject.Named;
@@ -84,41 +83,46 @@ public abstract class BaseFragment extends Fragment implements HasFragmentInject
         super.onAttach(context);
     }
 
+    @SuppressWarnings("ConstantConditions")
     @Override
     public void onViewStateRestored(Bundle savedInstanceState) {
         super.onViewStateRestored(savedInstanceState);
-        View view = getView();
-        if (view != null) {
-            /*
-             * Bind the views here instead of in onViewCreated so that view state changed listeners
-             * are not invoked automatically without user interaction.
-             *
-             * If we bind before this method (e.g. onViewCreated), then any checked changed
-             * listeners bound by ButterKnife will be invoked during fragment recreation (since
-             * Android itself saves and restores the views' states. Take a look at this gist for a
-             * concrete example: https://gist.github.com/vestrel00/982d585144423f728342787341fa001d
-             *
-             * The lifecycle order is as follows (same if added via xml or java or if retain
-             * instance is true):
-             *
-             * onAttach
-             * onCreateView
-             * onViewCreated
-             * onActivityCreated
-             * onViewStateRestored
-             * onResume
-             *
-             * Note that the onCreate (and other lifecycle events) are omitted on purpose. The
-             * caveat to this approach is that views, listeners, and resources bound by
-             * Butterknife will be null until onViewStatedRestored. Just be careful not to use any
-             * objects bound using Butterknife before onViewStateRestored.
-             */
-            viewUnbinder = ButterKnife.bind(this, view);
-        }
+        /*
+         * Bind the views here instead of in onViewCreated so that view state changed listeners
+         * are not invoked automatically without user interaction.
+         *
+         * If we bind before this method (e.g. onViewCreated), then any checked changed
+         * listeners bound by ButterKnife will be invoked during fragment recreation (since
+         * Android itself saves and restores the views' states. Take a look at this gist for a
+         * concrete example: https://gist.github.com/vestrel00/982d585144423f728342787341fa001d
+         *
+         * The lifecycle order is as follows (same if added via xml or java or if retain
+         * instance is true):
+         *
+         * onAttach
+         * onCreateView
+         * onViewCreated
+         * onActivityCreated
+         * onViewStateRestored
+         * onResume
+         *
+         * Note that the onCreate (and other lifecycle events) are omitted on purpose. The
+         * caveat to this approach is that views, listeners, and resources bound by
+         * Butterknife will be null until onViewStatedRestored. Just be careful not to use any
+         * objects bound using Butterknife before onViewStateRestored.
+         *
+         * Fragments that do not return a non-null View in onCreateView results in onViewCreated
+         * and onViewStateRestored not being called. This means that Butterknife.bind will not get
+         * called, which is completely fine because there is no View to bind. Furthermore, there is
+         * no need to check if getView() returns null here because this lifecycle method only gets
+         * called with a non-null View.
+         */
+        viewUnbinder = ButterKnife.bind(this, getView());
     }
 
     @Override
     public void onDestroyView() {
+        // This lifecycle method still gets called even if onCreateView returns a null view.
         if (viewUnbinder != null) {
             viewUnbinder.unbind();
         }
