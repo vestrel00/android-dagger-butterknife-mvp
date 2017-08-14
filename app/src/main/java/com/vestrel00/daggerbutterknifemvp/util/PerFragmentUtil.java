@@ -27,11 +27,11 @@ import javax.inject.Named;
 /**
  * A class that does something.
  * <p>
- * This class has the {@link PerFragment} scope. This means that the {@link android.app.Fragment}
- * and all of its child fragments and their dependencies will share the same instance of this class.
- * However, different fragment instances will have their own instances.
+ * This class has the {@link PerFragment} scope. This means that the Fragment and all of its child
+ * fragments and their dependencies will share the same instance of this class. However, different
+ * fragment instances will have their own instances.
  * <p>
- * This is not available at the {@link android.app.Activity} and {@link android.app.Application}.
+ * This is not available at the Activity and Application.
  */
 @PerFragment
 public final class PerFragmentUtil {

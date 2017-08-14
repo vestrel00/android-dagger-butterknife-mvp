@@ -25,12 +25,11 @@ import javax.inject.Inject;
 /**
  * A class that does something.
  * <p>
- * This class has the {@link PerActivity} scope. This means that the {@link android.app.Activity}
- * and all of its {@link android.app.Fragment}s and child fragments and their dependencies will
- * share the same instance of this class. However, different activity instances will have
- * their own instances.
+ * This class has the {@link PerActivity} scope. This means that the Activity and all of its
+ * Fragments and child fragments and their dependencies will share the same instance of this class.
+ * However, different activity instances will have their own instances.
  * <p>
- * This is not available at the {@link android.app.Application}.
+ * This is not available at the Application.
  */
 @PerActivity
 public final class PerActivityUtil {

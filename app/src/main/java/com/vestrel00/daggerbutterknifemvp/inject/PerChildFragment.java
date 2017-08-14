@@ -16,8 +16,6 @@
 
 package com.vestrel00.daggerbutterknifemvp.inject;
 
-import android.app.Fragment;
-
 import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
 
@@ -26,7 +24,7 @@ import javax.inject.Scope;
 /**
  * A custom scoping annotation that specifies that the lifespan of a dependency be the same as that
  * of a child Fragment (a fragment inside a fragment that is added using
- * {@link Fragment#getChildFragmentManager()}).
+ * Fragment.getChildFragmentManager().
  * <p>
  * This is used to annotate dependencies that behave like a singleton within the lifespan of a
  * child Fragment instead of the entire Application, Activity, or parent Fragment.
