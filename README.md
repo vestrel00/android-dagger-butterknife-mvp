@@ -1,23 +1,42 @@
 # Android Dagger ButterKnife MVP
 
-This is a sample app that is part of an 
-[article](https://proandroiddev.com/how-to-android-dagger-2-10-2-11-butterknife-mvp-part-1-eb0f6b970fd) 
+This is a project that is part of a 
+[3-part series](https://proandroiddev.com/how-to-android-dagger-2-10-2-11-butterknife-mvp-part-1-eb0f6b970fd) 
 about how to build Android applications using 
 [Dagger 2](https://github.com/google/dagger) with the 
-[Dagger Android extension](https://github.com/google/dagger/tree/master/java/dagger/android), 
+[Dagger Android extension](https://github.com/google/dagger/tree/dagger-2.11/java/dagger/android), 
+[Dagger Android support extension](https://github.com/google/dagger/tree/dagger-2.11/java/dagger/android/support), 
 [Butterknife](https://github.com/JakeWharton/butterknife), and Model-View-Presenter (MVP) pattern 
-with support for Singleton, PerActivity, PerFragment, and PerChildFragment scopes.
+with support for `@Singleton`, `@PerActivity`, `@PerFragment`, and `@PerChildFragment` scopes.
 
-This demonstrates dagger.android, butterknife, and MVP setup using 3 examples:
+## Branches
+
+There are 2 main branches:
+
+1. [**master**](https://github.com/vestrel00/android-dagger-butterknife-mvp/tree/master)
+
+  - Uses regular `Activity` and `Fragment` classes with a `minSdkVersion` of 17.
+
+2. [**master-support**](https://github.com/vestrel00/android-dagger-butterknife-mvp/tree/master-support)
+
+  - Uses `AppCompatActivity` and support `Fragment` classes with a `minSdkVersion` of 14. 
+    This branch is an extension of the **master** branch, containing all changes from **master**. 
+    Take a look at PR #49 for the main diff from **master**.
+
+## Examples
+
+This demonstrates dagger.android, Butterknife, and MVP setup using 3 examples:
 
 1. Activity with 1 fragment.
 2. Activity with 2 fragments.
 3. Activity with 1 fragment with 1 child fragment.
 
+## Walkthrough
+
 Read the blogs for a complete walkthrough of this app:
 
 1. Creating a project, from scratch, using the new Dagger.Android (2.11) dependency injection 
-   framework with support for @Singleton, @PerActivity , @PerFragment, and @PerChildFragment scopes. 
+   framework with support for `@Singleton`, `@PerActivity` , `@PerFragment`, and `@PerChildFragment` scopes. 
    [ARTICLE](https://proandroiddev.com/how-to-android-dagger-2-10-2-11-butterknife-mvp-part-1-eb0f6b970fd)
 2. Using Butterknife (8.7) to replace a lot of handwritten boilerplate view binding code. 
    [ARTICLE](https://proandroiddev.com/how-to-android-dagger-2-10-2-11-butterknife-mvp-part-2-6eaf60965df7)
