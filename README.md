@@ -23,6 +23,21 @@ There are 2 main branches:
     This branch is an extension of the **master** branch, containing all changes from **master**. 
     Take a look at PR #49 for the main diff from **master**.
 
+**Why is the `minSdkVersion` of the non-support setup in master 17? Can it be lower?**
+
+There are 2 main reasons why the `minSdkVersion` of the non-support setup can only as low as 17.
+
+1. https://github.com/vestrel00/android-dagger-butterknife-mvp/pull/20/files#r133777223
+2. https://github.com/vestrel00/android-dagger-butterknife-mvp/pull/29/files#r133777242
+
+Thus, the lowest `minSdkVersion` supported for the non-support setup in **master** is 17. 
+It cannot be lower.
+
+**What about the `minSdkVersion` of the support setup in master-support? Can it be lower than 14?**
+
+No. The *dagger.android.support* API only supports `minSdkVersion` 
+[as low as 14](https://github.com/vestrel00/android-dagger-butterknife-mvp/pull/49/files#r133043880).
+
 ## Examples
 
 This demonstrates dagger.android, Butterknife, and MVP setup using 3 examples:
