@@ -46,6 +46,12 @@ public abstract class BaseActivity extends Activity implements HasFragmentInject
     @Inject
     protected Navigator navigator;
 
+    /**
+     * A reference to the FragmentManager is injected and used instead of the getter method. This
+     * enables ease of mocking and verification in tests (in case Fragment needs testing).
+     *
+     * For more details, see https://github.com/vestrel00/android-dagger-butterknife-mvp/pull/52
+     */
     @Inject
     @Named(BaseActivityModule.ACTIVITY_FRAGMENT_MANAGER)
     protected FragmentManager fragmentManager;

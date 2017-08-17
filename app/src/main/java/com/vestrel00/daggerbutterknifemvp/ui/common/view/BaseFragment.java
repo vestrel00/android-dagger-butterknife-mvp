@@ -49,9 +49,25 @@ import dagger.android.HasFragmentInjector;
  */
 public abstract class BaseFragment extends Fragment implements HasFragmentInjector {
 
+    /**
+     * A reference to the activity Context is injected and used instead of the getter method. This
+     * enables ease of mocking and verification in tests (in case Activity needs testing).
+     * More importantly, the getter method (getContext()) is not available for API level below 23.
+     * We could use getActivity() though since that is available since API 11. However, exposing the
+     * Activity reference is less safe than just exposing the Context since a lot more can be done
+     * with the Activity reference.
+     *
+     * For more details, see https://github.com/vestrel00/android-dagger-butterknife-mvp/pull/52
+     */
     @Inject
     protected Context activityContext;
 
+    /**
+     * A reference to the FragmentManager is injected and used instead of the getter method. This
+     * enables ease of mocking and verification in tests (in case Fragment needs testing).
+     *
+     * For more details, see https://github.com/vestrel00/android-dagger-butterknife-mvp/pull/52
+     */
     // Note that this should not be used within a child fragment.
     @Inject
     @Named(BaseFragmentModule.CHILD_FRAGMENT_MANAGER)
