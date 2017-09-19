@@ -69,7 +69,8 @@ Read the blogs for a complete walkthrough of this app:
 2. Using Butterknife (8.7) to replace a lot of handwritten boilerplate view binding code. 
    [ARTICLE](https://proandroiddev.com/how-to-android-dagger-2-10-2-11-butterknife-mvp-part-2-6eaf60965df7)
 3. Restructuring the code to Model-View-Presenter (MVP) to increase testability, maintainability, 
-   and scalability. *(coming soon)*
+   and scalability.
+   [ARTICLE](https://proandroiddev.com/how-to-android-dagger-2-10-2-11-butterknife-mvp-part-3-ed5acf40eb19)
 
 ## License
 
