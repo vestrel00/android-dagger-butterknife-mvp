@@ -35,7 +35,7 @@ android {
 dependencies {
     // There is a better way to declare and structure dependencies.
     // However, that is a different topic.
-    def daggerVersion = '2.11'
+    def daggerVersion = '2.12'
     def butterKnifeVersion = '8.7.0'
     def supportVersion = '26.0.1'
 
