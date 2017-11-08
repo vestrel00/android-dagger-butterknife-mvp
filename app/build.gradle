@@ -36,7 +36,7 @@ dependencies {
     // There is a better way to declare and structure dependencies.
     // However, that is a different topic.
     def daggerVersion = '2.13'
-    def butterKnifeVersion = '8.7.0'
+    def butterKnifeVersion = '8.8.0'
     def supportVersion = '26.0.1'
 
     annotationProcessor "com.google.dagger:dagger-compiler:$daggerVersion"
