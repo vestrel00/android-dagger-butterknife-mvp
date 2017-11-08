@@ -3,24 +3,30 @@
 This project is part of a 
 [3-part series](https://proandroiddev.com/how-to-android-dagger-2-10-2-11-butterknife-mvp-part-1-eb0f6b970fd) 
 about how to build Android applications using 
-[Dagger 2](https://github.com/google/dagger) with the 
-[Dagger Android extension](https://github.com/google/dagger/tree/dagger-2.11/java/dagger/android), 
-[Dagger Android support extension](https://github.com/google/dagger/tree/dagger-2.11/java/dagger/android/support), 
+[Dagger 2](https://github.com/google/dagger) (2.11/2.12) with the 
+[Dagger Android extension](https://github.com/google/dagger/tree/master/java/dagger/android), 
+[Dagger Android support extension](https://github.com/google/dagger/tree/master/java/dagger/android/support), 
 [Butterknife](https://github.com/JakeWharton/butterknife), and Model-View-Presenter (MVP) pattern 
 with support for `@Singleton`, `@PerActivity`, `@PerFragment`, and `@PerChildFragment` scopes.
 
 **A Larger Project**
 
-This project is a smaller, derivative of a larger project. One of the main purpose of this project 
+> This project is a smaller, derivative of a larger project. One of the main purpose of this project 
 is to showcase / walkthrough a specific portion of the larger project's architecture. Take a look at
-the following larger project for a more real-world example on how to apply Dagger Android (2.11), 
+the following larger project for a more real-world example on how to apply Dagger Android (2.11/2.12), 
 Butterknife (8.7), Clean Architecture, MVP, MVVM, Kotlin, Java Swing, RxJava, RxAndroid, Retrofit 2, 
 Jackson, AutoValue, Yelp Fusion (v3) REST API, Google Maps API, monolithic repo project management 
 with Gradle, JUNit 4, AssertJ, Mockito 2, Robolectric 3, Espresso 2, and Java best practices and
 design patterns.
+>
+> https://github.com/vestrel00/business-search-app-java
 
-https://github.com/vestrel00/business-search-app-java
+## Supported Versions
 
+This project works with the following Dagger 2 and Butterknife versions;
+
+- Dagger 2: 2.11, 2.12
+- Butterknife: 8.7
 
 ## Branches
 
@@ -63,7 +69,7 @@ This demonstrates dagger.android, Butterknife, and MVP setup using 3 examples:
 
 Read the blogs for a complete walkthrough of this app:
 
-1. Creating a project, from scratch, using the new Dagger.Android (2.11) dependency injection 
+1. Creating a project, from scratch, using the new Dagger.Android (2.11/2.12) dependency injection 
    framework with support for `@Singleton`, `@PerActivity` , `@PerFragment`, and `@PerChildFragment` scopes. 
    [ARTICLE](https://proandroiddev.com/how-to-android-dagger-2-10-2-11-butterknife-mvp-part-1-eb0f6b970fd)
 2. Using Butterknife (8.7) to replace a lot of handwritten boilerplate view binding code. 
