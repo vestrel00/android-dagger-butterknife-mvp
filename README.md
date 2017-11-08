@@ -1,3 +1,6 @@
+**master** [![Build Status](https://travis-ci.org/vestrel00/android-dagger-butterknife-mvp.svg?branch=master)](https://travis-ci.org/vestrel00/android-dagger-butterknife-mvp) | 
+**master-support** [![Build Status](https://travis-ci.org/vestrel00/android-dagger-butterknife-mvp.svg?branch=master-support)](https://travis-ci.org/vestrel00/android-dagger-butterknife-mvp)
+
 # Android Dagger ButterKnife MVP
 
 This project is part of a 
