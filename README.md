@@ -43,11 +43,12 @@ There are 2 main branches:
 
   - Uses `AppCompatActivity` and support `Fragment` classes with a `minSdkVersion` of 14. 
     This branch is an extension of the **master** branch, containing all changes from **master**. 
-    Take a look at PR #49 for the main diff from **master**.
+    Take a look at [PR #49](https://github.com/vestrel00/android-dagger-butterknife-mvp/pull/49) for the main diff 
+    from **master**.
 
 **Why is the `minSdkVersion` of the non-support setup in master 17? Can it be lower?**
 
-There are 2 main reasons why the `minSdkVersion` of the non-support setup can only as low as 17.
+There are 2 main reasons why the `minSdkVersion` of the non-support setup can only be as low as 17.
 
 1. https://github.com/vestrel00/android-dagger-butterknife-mvp/pull/20/files#r133777223
 2. https://github.com/vestrel00/android-dagger-butterknife-mvp/pull/29/files#r133777242
