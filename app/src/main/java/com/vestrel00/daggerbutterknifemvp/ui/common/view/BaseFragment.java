@@ -17,6 +17,7 @@
 package com.vestrel00.daggerbutterknifemvp.ui.common.view;
 
 import android.app.Activity;
+import android.app.DialogFragment;
 import android.app.Fragment;
 import android.app.FragmentManager;
 import android.content.Context;
@@ -36,8 +37,18 @@ import dagger.android.DispatchingAndroidInjector;
 import dagger.android.HasFragmentInjector;
 
 /**
- * Abstract Fragment for all Fragments and child Fragments to extend. This contains some boilerplate
- * dependency injection code and activity {@link Context}.
+ * Abstract (Dialog)Fragment for all (Dialog)Fragments and child (Dialog)Fragments to extend. This contains some
+ * boilerplate dependency injection code and activity {@link Context}.
+ * <p>
+ * <b>WHY EXTEND DialogFragment?</b>
+ * {@link DialogFragment}s are simple extensions of Fragments. DialogFragments can be shown as a dialog floating above
+ * the current activity or be embedded into views like regular fragments. Therefore, supporting both Fragments and
+ * DialogFragments for dependency injection can simply be achieved by having the base fragment class (this) extend
+ * DialogFragment instead of Fragment. We could have separate base classes for Fragments and DialogFragments but that
+ * would produce duplicate code.
+ * <p>
+ * Note that as of Dagger 2.12, the abstract base framework type {@link dagger.android.DaggerDialogFragment} has been
+ * introduced for subclassing if so desired.
  * <p>
  * <b>DEPENDENCY INJECTION</b>
  * We could extend {@link dagger.android.DaggerFragment} so we can get the boilerplate
@@ -47,7 +58,7 @@ import dagger.android.HasFragmentInjector;
  * <b>VIEW BINDING</b>
  * This fragment handles view bind and unbinding.
  */
-public abstract class BaseFragment extends Fragment implements HasFragmentInjector {
+public abstract class BaseFragment extends DialogFragment implements HasFragmentInjector {
 
     /**
      * A reference to the activity Context is injected and used instead of the getter method. This
@@ -56,7 +67,7 @@ public abstract class BaseFragment extends Fragment implements HasFragmentInject
      * We could use getActivity() though since that is available since API 11. However, exposing the
      * Activity reference is less safe than just exposing the Context since a lot more can be done
      * with the Activity reference.
-     *
+     * <p>
      * For more details, see https://github.com/vestrel00/android-dagger-butterknife-mvp/pull/52
      */
     @Inject
@@ -65,7 +76,7 @@ public abstract class BaseFragment extends Fragment implements HasFragmentInject
     /**
      * A reference to the FragmentManager is injected and used instead of the getter method. This
      * enables ease of mocking and verification in tests (in case Fragment needs testing).
-     *
+     * <p>
      * For more details, see https://github.com/vestrel00/android-dagger-butterknife-mvp/pull/52
      */
     // Note that this should not be used within a child fragment.

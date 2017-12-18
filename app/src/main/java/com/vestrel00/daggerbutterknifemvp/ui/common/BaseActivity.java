@@ -17,6 +17,7 @@
 package com.vestrel00.daggerbutterknifemvp.ui.common;
 
 import android.app.Activity;
+import android.app.DialogFragment;
 import android.app.Fragment;
 import android.app.FragmentManager;
 import android.os.Bundle;
@@ -54,7 +55,7 @@ public abstract class BaseActivity extends Activity implements HasFragmentInject
      */
     @Inject
     @Named(BaseActivityModule.ACTIVITY_FRAGMENT_MANAGER)
-    protected FragmentManager fragmentManager;
+    FragmentManager fragmentManager;
 
     @Inject
     DispatchingAndroidInjector<Fragment> fragmentInjector;
@@ -74,5 +75,9 @@ public abstract class BaseActivity extends Activity implements HasFragmentInject
         fragmentManager.beginTransaction()
                 .add(containerViewId, fragment)
                 .commit();
+    }
+
+    protected final void showDialogFragment(DialogFragment dialogFragment, String tag) {
+        dialogFragment.show(fragmentManager, tag);
     }
 }

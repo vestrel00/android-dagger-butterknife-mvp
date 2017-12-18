@@ -41,5 +41,16 @@
             android:layout_height="wrap_content"
             android:text="@string/example_3" />
 
+        <Button
+            android:id="@+id/example_4"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/example_4" />
+
+        <Button
+            android:id="@+id/example_5"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/example_5" />
     </LinearLayout>
 </ScrollView>

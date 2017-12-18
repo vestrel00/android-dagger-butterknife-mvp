@@ -26,4 +26,8 @@ public interface MainFragmentListener {
     void onExample2Clicked();
 
     void onExample3Clicked();
+
+    void onExample4Clicked();
+
+    void onExample5Clicked();
 }
