@@ -48,7 +48,7 @@ import dagger.android.support.HasSupportFragmentInjector;
  * Therefore, supporting both Fragments and DialogFragments for dependency injection can simply be
  * achieved by having the base fragment class (this) extend DialogFragment instead of Fragment.
  * We could have separate base classes for Fragments and DialogFragments but that would produce
- * duplicate code.
+ * duplicate code. See See https://github.com/vestrel00/android-dagger-butterknife-mvp/pull/64
  * <p>
  * Note that as of Dagger 2.12, the abstract base framework type
  * {@link dagger.android.support.DaggerAppCompatDialogFragment} has been introduced for subclassing
