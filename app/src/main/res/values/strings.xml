@@ -21,6 +21,8 @@
     <string name="example_1">Ex1: Activity with 1 Fragment</string>
     <string name="example_2">Ex2: Activity with 2 Fragments</string>
     <string name="example_3">Ex3: Activity with 1 Fragment with 1 child Fragment</string>
+    <string name="example_4">Ex4: Ex1 Fragment as a floating dialog</string>
+    <string name="example_5">Ex5: Ex3 Fragment as a floating dialog</string>
 
     <string name="fragment">Fragment</string>
     <string name="fragment_a">Fragment A</string>
