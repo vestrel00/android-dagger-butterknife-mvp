@@ -37,18 +37,19 @@ import dagger.android.DispatchingAndroidInjector;
 import dagger.android.HasFragmentInjector;
 
 /**
- * Abstract (Dialog)Fragment for all (Dialog)Fragments and child (Dialog)Fragments to extend. This contains some
- * boilerplate dependency injection code and activity {@link Context}.
+ * Abstract (Dialog)Fragment for all (Dialog)Fragments and child (Dialog)Fragments to extend.
+ * This contains some boilerplate dependency injection code and activity {@link Context}.
  * <p>
  * <b>WHY EXTEND DialogFragment?</b>
- * {@link DialogFragment}s are simple extensions of Fragments. DialogFragments can be shown as a dialog floating above
- * the current activity or be embedded into views like regular fragments. Therefore, supporting both Fragments and
- * DialogFragments for dependency injection can simply be achieved by having the base fragment class (this) extend
- * DialogFragment instead of Fragment. We could have separate base classes for Fragments and DialogFragments but that
- * would produce duplicate code.
+ * {@link DialogFragment}s are simple extensions of Fragments. DialogFragments can be shown as a
+ * dialog floating above the current activity or be embedded into views like regular fragments.
+ * Therefore, supporting both Fragments and DialogFragments for dependency injection can simply be
+ * achieved by having the base fragment class (this) extend DialogFragment instead of Fragment.
+ * We could have separate base classes for Fragments and DialogFragments but that would produce
+ * duplicate code.
  * <p>
- * Note that as of Dagger 2.12, the abstract base framework type {@link dagger.android.DaggerDialogFragment} has been
- * introduced for subclassing if so desired.
+ * Note that as of Dagger 2.12, the abstract base framework type
+ * {@link dagger.android.DaggerDialogFragment} has been introduced for subclassing if so desired.
  * <p>
  * <b>DEPENDENCY INJECTION</b>
  * We could extend {@link dagger.android.DaggerFragment} so we can get the boilerplate
