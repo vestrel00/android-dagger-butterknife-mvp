@@ -40,7 +40,7 @@ android {
 dependencies {
     // There is a better way to declare and structure dependencies.
     // However, that is a different topic.
-    def daggerVersion = '2.13'
+    def daggerVersion = '2.14'
     def butterKnifeVersion = '8.8.0'
 
     annotationProcessor "com.google.dagger:dagger-compiler:$daggerVersion"
