@@ -22,6 +22,7 @@ import android.support.annotation.IdRes;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
+import android.support.v7.app.AppCompatDialogFragment;
 
 import javax.inject.Inject;
 import javax.inject.Named;
@@ -34,18 +35,31 @@ import dagger.android.support.AndroidSupportInjection;
 import dagger.android.support.HasSupportFragmentInjector;
 
 /**
- * Abstract Fragment for all Fragments and child Fragments to extend. This contains some boilerplate
- * dependency injection code and activity {@link Context}.
+ * Abstract (Dialog)Fragment for all (Dialog)Fragments and child (Dialog)Fragments to extend.
+ * This contains some boilerplate dependency injection code and activity {@link Context}.
+ * <p>
+ * <b>WHY EXTEND AppCompatDialogFragment?</b>
+ * {@link AppCompatDialogFragment}s are simple extensions of Fragments. DialogFragments can be shown
+ * as a dialog floating above the current activity or be embedded into views like regular fragments.
+ * Therefore, supporting both Fragments and DialogFragments for dependency injection can simply be
+ * achieved by having the base fragment class (this) extend DialogFragment instead of Fragment.
+ * We could have separate base classes for Fragments and DialogFragments but that would produce
+ * duplicate code. See https://github.com/vestrel00/android-dagger-butterknife-mvp/pull/64
+ * <p>
+ * Note that as of Dagger 2.12, the abstract base framework type
+ * {@link dagger.android.support.DaggerAppCompatDialogFragment} has been introduced for subclassing
+ * if so desired.
  * <p>
  * <b>DEPENDENCY INJECTION</b>
- * We could extend {@link dagger.android.support.DaggerFragment} so we can get the boilerplate
- * dagger code for free. However, we want to avoid inheritance (if possible and it is in this case)
- * so that we have to option to inherit from something else later on if needed.
+ * We could extend {@link dagger.android.support.DaggerAppCompatDialogFragment} so we can get the
+ * boilerplate dagger code for free. However, we want to avoid inheritance (if possible and it is in
+ * this case) so that we have to option to inherit from something else later on if needed.
  * <p>
  * <b>VIEW BINDING</b>
  * This fragment handles view bind and unbinding.
  */
-public abstract class BaseFragment extends Fragment implements HasSupportFragmentInjector {
+public abstract class BaseFragment extends AppCompatDialogFragment
+        implements HasSupportFragmentInjector {
 
     /**
      * A reference to the activity Context is injected and used instead of the getter method. This
@@ -54,7 +68,7 @@ public abstract class BaseFragment extends Fragment implements HasSupportFragmen
      * We could use getActivity() though since that is available since API 11. However, exposing the
      * Activity reference is less safe than just exposing the Context since a lot more can be done
      * with the Activity reference.
-     *
+     * <p>
      * For more details, see https://github.com/vestrel00/android-dagger-butterknife-mvp/pull/52
      */
     @Inject
@@ -63,7 +77,7 @@ public abstract class BaseFragment extends Fragment implements HasSupportFragmen
     /**
      * A reference to the FragmentManager is injected and used instead of the getter method. This
      * enables ease of mocking and verification in tests (in case Fragment needs testing).
-     *
+     * <p>
      * For more details, see https://github.com/vestrel00/android-dagger-butterknife-mvp/pull/52
      */
     // Note that this should not be used within a child fragment.

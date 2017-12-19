@@ -72,4 +72,14 @@ public final class MainFragment extends BaseFragment {
     void onExample3Clicked() {
         listener.onExample3Clicked();
     }
+
+    @OnClick(R.id.example_4)
+    void onExample4Clicked() {
+        listener.onExample4Clicked();
+    }
+
+    @OnClick(R.id.example_5)
+    void onExample5Clicked() {
+        listener.onExample5Clicked();
+    }
 }

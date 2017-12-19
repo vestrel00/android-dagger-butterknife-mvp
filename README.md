@@ -65,9 +65,11 @@ No. The *dagger.android.support* API only supports `minSdkVersion`
 
 This demonstrates dagger.android, Butterknife, and MVP setup using 3 examples:
 
-1. Activity with 1 fragment.
-2. Activity with 2 fragments.
-3. Activity with 1 fragment with 1 child fragment.
+1. Activity with 1 Fragment.
+2. Activity with 2 Fragments.
+3. Activity with 1 Fragment with 1 child Fragment.
+4. The Fragment in example 1 as a floating dialog.
+5. The Fragments in example 3 as a floating dialog.
 
 ## Walkthrough
 
