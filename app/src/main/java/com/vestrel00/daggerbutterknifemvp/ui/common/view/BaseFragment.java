@@ -16,13 +16,17 @@
 
 package com.vestrel00.daggerbutterknifemvp.ui.common.view;
 
+import android.app.Dialog;
 import android.content.Context;
 import android.os.Bundle;
 import android.support.annotation.IdRes;
+import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v7.app.AppCompatDialogFragment;
+
+import com.vestrel00.daggerbutterknifemvp.R;
 
 import javax.inject.Inject;
 import javax.inject.Named;
@@ -44,7 +48,7 @@ import dagger.android.support.HasSupportFragmentInjector;
  * Therefore, supporting both Fragments and DialogFragments for dependency injection can simply be
  * achieved by having the base fragment class (this) extend DialogFragment instead of Fragment.
  * We could have separate base classes for Fragments and DialogFragments but that would produce
- * duplicate code. See https://github.com/vestrel00/android-dagger-butterknife-mvp/pull/64
+ * duplicate code.
  * <p>
  * Note that as of Dagger 2.12, the abstract base framework type
  * {@link dagger.android.support.DaggerAppCompatDialogFragment} has been introduced for subclassing
@@ -96,6 +100,14 @@ public abstract class BaseFragment extends AppCompatDialogFragment
         // This is called even for API levels below 23.
         AndroidSupportInjection.inject(this);
         super.onAttach(context);
+    }
+
+    @Override
+    @NonNull
+    public Dialog onCreateDialog(Bundle savedInstanceState) {
+        // Quick fix for the dialog width not taking up most of the screen width.
+        setStyle(AppCompatDialogFragment.STYLE_NORMAL, R.style.Theme_AppCompat_Dialog_MinWidth);
+        return super.onCreateDialog(savedInstanceState);
     }
 
     @SuppressWarnings("ConstantConditions")
