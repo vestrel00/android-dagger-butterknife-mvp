@@ -63,7 +63,7 @@ No. The *dagger.android.support* API only supports `minSdkVersion`
 
 ## Examples
 
-This demonstrates dagger.android, Butterknife, and MVP setup using 3 examples:
+This demonstrates dagger.android, Butterknife, and MVP setup using 5 examples:
 
 1. Activity with 1 Fragment.
 2. Activity with 2 Fragments.
@@ -86,7 +86,7 @@ Read the blogs for a complete walkthrough of this app:
 
 ## License
 
-    Copyright 2017 Vandolf Estrellado
+    Copyright 2018 Vandolf Estrellado
     
     Licensed under the Apache License, Version 2.0 (the "License");
     you may not use this file except in compliance with the License.
