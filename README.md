@@ -33,7 +33,7 @@ This project works with the following Dagger 2 and Butterknife versions;
 
 ## Branches
 
-There are 2 main branches:
+There are 4 main branches:
 
 1. [**master**](https://github.com/vestrel00/android-dagger-butterknife-mvp/tree/master)
 
@@ -45,6 +45,15 @@ There are 2 main branches:
     This branch is an extension of the **master** branch, containing all changes from **master**. 
     Take a look at [PR #49](https://github.com/vestrel00/android-dagger-butterknife-mvp/pull/49) for the main diff 
     from **master**.
+
+3. **master-kotlin** [UNDER DEVELOPMENT](https://github.com/vestrel00/android-dagger-butterknife-mvp/issues/61)
+
+  - Same as **master** except written in Kotlin.
+  
+
+4. **master-support-kotlin** [UNDER DEVELOPMENT](https://github.com/vestrel00/android-dagger-butterknife-mvp/issues/62)
+
+  - Same as **master-support** except written in Kotlin.
 
 **Why is the `minSdkVersion` of the non-support setup in master 17? Can it be lower?**
 
@@ -71,6 +80,14 @@ This demonstrates dagger.android, Butterknife, and MVP setup using 5 examples:
 4. The Fragment in example 1 as a floating dialog.
 5. The Fragments in example 3 as a floating dialog.
 
+## A Quick Gist
+
+For a quick overview of *dagger-android* 2.11 usage with support for `@Singleton`, `@PerActivity`, 
+`@PerFragment`, and `@PerChildFragment` scopes, take a look at 
+[this gist](https://gist.github.com/vestrel00/64be913f954989fe52c674247e093218). 
+
+Read the **walkthrough** for the complete guide with proper step-by-step setup and explanations.
+
 ## Walkthrough
 
 Read the blogs for a complete walkthrough of this app:
@@ -83,6 +100,14 @@ Read the blogs for a complete walkthrough of this app:
 3. Restructuring the code to Model-View-Presenter (MVP) to increase testability, maintainability, 
    and scalability.
    [ARTICLE](https://proandroiddev.com/how-to-android-dagger-2-10-2-11-butterknife-mvp-part-3-ed5acf40eb19)
+
+If you don't like reading blogs or are just too "pro" and would like to just explore the repository,
+you may want to look at the issues instead;
+
+- [Dagger-android](https://github.com/vestrel00/android-dagger-butterknife-mvp/issues?q=label%3A%22A%3A+dagger.android%22+is%3Aclosed+sort%3Acreated-asc)
+- [Butterknife](https://github.com/vestrel00/android-dagger-butterknife-mvp/issues?q=label%3A%22B%3A+butterknife%22+is%3Aclosed+sort%3Acreated-asc)
+- [MVP](https://github.com/vestrel00/android-dagger-butterknife-mvp/issues?q=is%3Aclosed+sort%3Acreated-asc+label%3A%22C%3A+mvp%22)
+- [Kotlin](https://github.com/vestrel00/android-dagger-butterknife-mvp/issues?q=sort%3Acreated-asc+label%3AKotlin+is%3Aclosed)
 
 ## License
 
