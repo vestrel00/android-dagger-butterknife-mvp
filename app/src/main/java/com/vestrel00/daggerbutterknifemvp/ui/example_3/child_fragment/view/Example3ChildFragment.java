@@ -46,7 +46,6 @@ public final class Example3ChildFragment extends BaseViewFragment<Example3ChildP
 
     @Override
     public void showSomething(String something) {
-        childFragmentManager.hashCode();
         someText.setText(something);
     }
 
