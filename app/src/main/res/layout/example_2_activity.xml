@@ -29,8 +29,7 @@
         <FrameLayout
             android:id="@+id/fragment_a_container"
             android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_weight="1"
+            android:layout_height="wrap_content"
             android:background="@drawable/fragment_background" />
 
         <!-- We can also embed the fragment in xml using the fragment tag. However, we create the
@@ -38,8 +37,7 @@
         <FrameLayout
             android:id="@+id/fragment_b_container"
             android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_weight="1"
+            android:layout_height="wrap_content"
             android:background="@drawable/fragment_background" />
 
     </LinearLayout>
