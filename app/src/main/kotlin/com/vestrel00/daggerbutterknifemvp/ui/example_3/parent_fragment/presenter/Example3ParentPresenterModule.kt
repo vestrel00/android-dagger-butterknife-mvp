@@ -14,22 +14,20 @@
  * limitations under the License.
  */
 
-buildscript {
-    repositories {
-        jcenter()
-        mavenCentral()
-    }
+package com.vestrel00.daggerbutterknifemvp.ui.example_3.parent_fragment.presenter
 
-    dependencies {
-        classpath "com.android.tools.build:gradle:2.3.3"
-        classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:1.2.0"
-        classpath "com.jakewharton:butterknife-gradle-plugin:8.7.0"
-    }
-}
+import com.vestrel00.daggerbutterknifemvp.inject.PerFragment
+import dagger.Binds
+import dagger.Module
 
-allprojects {
-    repositories {
-        jcenter()
-        mavenCentral()
-    }
+/**
+ * Provides example 3 parent presenter dependencies.
+ */
+@Module
+abstract class Example3ParentPresenterModule {
+
+    @Binds
+    @PerFragment
+    abstract fun example3ParentPresenter(example3ParentPresenterImpl: Example3ParentPresenterImpl):
+            Example3ParentPresenter
 }

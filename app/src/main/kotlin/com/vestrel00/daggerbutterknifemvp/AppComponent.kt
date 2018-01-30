@@ -14,22 +14,19 @@
  * limitations under the License.
  */
 
-buildscript {
-    repositories {
-        jcenter()
-        mavenCentral()
-    }
+package com.vestrel00.daggerbutterknifemvp
 
-    dependencies {
-        classpath "com.android.tools.build:gradle:2.3.3"
-        classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:1.2.0"
-        classpath "com.jakewharton:butterknife-gradle-plugin:8.7.0"
-    }
-}
+import dagger.Component
+import dagger.android.AndroidInjector
+import javax.inject.Singleton
 
-allprojects {
-    repositories {
-        jcenter()
-        mavenCentral()
-    }
+/**
+ * Injects application dependencies.
+ */
+@Singleton
+@Component(modules = [AppModule::class])
+interface AppComponent : AndroidInjector<App> {
+
+    @Component.Builder
+    abstract class Builder : AndroidInjector.Builder<App>()
 }
