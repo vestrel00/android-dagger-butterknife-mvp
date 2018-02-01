@@ -14,26 +14,17 @@
  * limitations under the License.
  */
 
-buildscript {
-    repositories {
-        jcenter()
-        mavenCentral()
-    }
+package com.vestrel00.daggerbutterknifemvp.ui.main.view
 
-    dependencies {
-        classpath "com.android.tools.build:gradle:2.3.3"
-        classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:1.2.0"
-        classpath "com.jakewharton:butterknife-gradle-plugin:8.7.0"
-    }
-}
+interface MainFragmentListener {
 
-allprojects {
-    repositories {
-        jcenter()
-        mavenCentral()
-        // Required for dagger.android.support
-        maven {
-            url "https://maven.google.com"
-        }
-    }
+    fun onExample1Clicked()
+
+    fun onExample2Clicked()
+
+    fun onExample3Clicked()
+
+    fun onExample4Clicked()
+
+    fun onExample5Clicked()
 }
