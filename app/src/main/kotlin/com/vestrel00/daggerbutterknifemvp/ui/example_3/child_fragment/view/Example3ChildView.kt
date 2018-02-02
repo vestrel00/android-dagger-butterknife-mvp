@@ -14,26 +14,14 @@
  * limitations under the License.
  */
 
-buildscript {
-    repositories {
-        jcenter()
-        mavenCentral()
-    }
+package com.vestrel00.daggerbutterknifemvp.ui.example_3.child_fragment.view
 
-    dependencies {
-        classpath "com.android.tools.build:gradle:2.3.3"
-        classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:1.2.0"
-        classpath "com.jakewharton:butterknife-gradle-plugin:8.7.0"
-    }
-}
+import com.vestrel00.daggerbutterknifemvp.ui.common.view.MVPView
 
-allprojects {
-    repositories {
-        jcenter()
-        mavenCentral()
-        // Required for dagger.android.support
-        maven {
-            url "https://maven.google.com"
-        }
-    }
+/**
+ * A view that contains a button that does something.
+ */
+interface Example3ChildView : MVPView {
+
+    fun showSomething(something: String)
 }

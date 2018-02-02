@@ -14,26 +14,17 @@
  * limitations under the License.
  */
 
-buildscript {
-    repositories {
-        jcenter()
-        mavenCentral()
-    }
+package com.vestrel00.daggerbutterknifemvp.inject
 
-    dependencies {
-        classpath "com.android.tools.build:gradle:2.3.3"
-        classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:1.2.0"
-        classpath "com.jakewharton:butterknife-gradle-plugin:8.7.0"
-    }
-}
+import javax.inject.Scope
 
-allprojects {
-    repositories {
-        jcenter()
-        mavenCentral()
-        // Required for dagger.android.support
-        maven {
-            url "https://maven.google.com"
-        }
-    }
-}
+/**
+ * A custom scoping annotation that specifies that the lifespan of a dependency be the same as that
+ * of a Fragment.
+ *
+ * This is used to annotate dependencies that behave like a singleton within the lifespan of a
+ * Fragment and child Fragments instead of the entire Application or Activity.
+ */
+@Scope
+@Retention(AnnotationRetention.RUNTIME)
+annotation class PerFragment
