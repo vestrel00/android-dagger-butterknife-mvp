@@ -1,0 +1,53 @@
+/*
+ * Copyright 2018 Vandolf Estrellado
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *        http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+
+package com.vestrel00.daggerbutterknifemvp.ui.example_1
+
+import android.app.Activity
+import com.vestrel00.daggerbutterknifemvp.inject.PerActivity
+import com.vestrel00.daggerbutterknifemvp.inject.PerFragment
+import com.vestrel00.daggerbutterknifemvp.ui.common.BaseActivityModule
+import com.vestrel00.daggerbutterknifemvp.ui.example_1.fragment.view.Example1Fragment
+import com.vestrel00.daggerbutterknifemvp.ui.example_1.fragment.view.Example1FragmentModule
+import dagger.Binds
+import dagger.Module
+import dagger.android.ContributesAndroidInjector
+
+/**
+ * Provides example 1 activity dependencies.
+ */
+@Module(includes = [BaseActivityModule::class])
+abstract class Example1ActivityModule {
+
+    /**
+     * Provides the injector for the [Example1Fragment], which has access to the dependencies
+     * provided by this activity and application instance (singleton scoped objects).
+     */
+    @PerFragment
+    @ContributesAndroidInjector(modules = [Example1FragmentModule::class])
+    abstract fun example1FragmentInjector(): Example1Fragment
+
+    /**
+     * As per the contract specified in [BaseActivityModule]; "This must be included in all
+     * activity modules, which must provide a concrete implementation of [Activity]."
+     *
+     * @param example1Activity the example 1 activity
+     * @return the activity
+     */
+    @Binds
+    @PerActivity
+    abstract fun activity(example1Activity: Example1Activity): Activity
+}

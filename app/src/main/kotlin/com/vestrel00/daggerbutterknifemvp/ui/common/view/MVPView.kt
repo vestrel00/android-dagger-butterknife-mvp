@@ -14,22 +14,11 @@
  * limitations under the License.
  */
 
-buildscript {
-    repositories {
-        jcenter()
-        mavenCentral()
-    }
+package com.vestrel00.daggerbutterknifemvp.ui.common.view
 
-    dependencies {
-        classpath "com.android.tools.build:gradle:2.3.3"
-        classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:1.2.0"
-        classpath "com.jakewharton:butterknife-gradle-plugin:8.7.0"
-    }
-}
-
-allprojects {
-    repositories {
-        jcenter()
-        mavenCentral()
-    }
-}
+/**
+ * The type of all views.
+ *
+ * Note that this is not named "View" because it collides with Android's [android.view.View].
+ */
+interface MVPView
