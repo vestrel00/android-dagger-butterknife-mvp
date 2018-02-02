@@ -62,7 +62,7 @@ There are 4 main branches:
   - This branch is an extension of the **master-support** branch, containing all changes from 
     **master-support**, which is then translated to Kotlin.
   - Take a look at [PR #68](https://github.com/vestrel00/android-dagger-butterknife-mvp/pull/68) for
-    the main *Java -> Kotlin* translation of the **master** branch.
+    the main *Java -> Kotlin* translation of the **master-support** branch.
 
 **Why is the `minSdkVersion` of the non-support setup in master 17? Can it be lower?**
 
