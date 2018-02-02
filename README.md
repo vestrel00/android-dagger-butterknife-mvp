@@ -1,6 +1,3 @@
-**master** [![Build Status](https://travis-ci.org/vestrel00/android-dagger-butterknife-mvp.svg?branch=master)](https://travis-ci.org/vestrel00/android-dagger-butterknife-mvp) | 
-**master-support** [![Build Status](https://travis-ci.org/vestrel00/android-dagger-butterknife-mvp.svg?branch=master-support)](https://travis-ci.org/vestrel00/android-dagger-butterknife-mvp)
-
 # Android Dagger ButterKnife MVP
 
 This project is part of a 
@@ -35,25 +32,37 @@ This project works with the following Dagger 2 and Butterknife versions;
 
 There are 4 main branches:
 
-1. [**master**](https://github.com/vestrel00/android-dagger-butterknife-mvp/tree/master)
+1. [**master**](https://github.com/vestrel00/android-dagger-butterknife-mvp/tree/master) 
+   [![Build Status](https://travis-ci.org/vestrel00/android-dagger-butterknife-mvp.svg?branch=master)](https://travis-ci.org/vestrel00/android-dagger-butterknife-mvp)
 
   - Uses regular `Activity` and `Fragment` classes with a `minSdkVersion` of 17.
 
 2. [**master-support**](https://github.com/vestrel00/android-dagger-butterknife-mvp/tree/master-support)
+   [![Build Status](https://travis-ci.org/vestrel00/android-dagger-butterknife-mvp.svg?branch=master-support)](https://travis-ci.org/vestrel00/android-dagger-butterknife-mvp)
 
-  - Uses `AppCompatActivity` and support `Fragment` classes with a `minSdkVersion` of 14. 
-    This branch is an extension of the **master** branch, containing all changes from **master**. 
-    Take a look at [PR #49](https://github.com/vestrel00/android-dagger-butterknife-mvp/pull/49) for the main diff 
-    from **master**.
+  - Uses `AppCompatActivity` and support `Fragment` classes with a `minSdkVersion` of 14.
+  - This branch is an extension of the **master** branch, containing all changes from **master**.
+  - Take a look at [PR #49](https://github.com/vestrel00/android-dagger-butterknife-mvp/pull/49) for
+    the main diff from the **master** branch.
 
-3. **master-kotlin** [UNDER DEVELOPMENT](https://github.com/vestrel00/android-dagger-butterknife-mvp/issues/61)
+3. [**master-kotlin**](https://github.com/vestrel00/android-dagger-butterknife-mvp/tree/master-kotlin) 
+   [![Build Status](https://travis-ci.org/vestrel00/android-dagger-butterknife-mvp.svg?branch=master-kotlin)](https://travis-ci.org/vestrel00/android-dagger-butterknife-mvp)
 
   - Same as **master** except written in Kotlin.
+  - This branch is an extension of the **master** branch, containing all changes from **master**,
+    which is then translated to Kotlin.
+  - Take a look at [PR #67](https://github.com/vestrel00/android-dagger-butterknife-mvp/pull/67) for
+    the main *Java -> Kotlin* translation of the **master** branch.
   
 
-4. **master-support-kotlin** [UNDER DEVELOPMENT](https://github.com/vestrel00/android-dagger-butterknife-mvp/issues/62)
+4. [**master-support-kotlin**](https://github.com/vestrel00/android-dagger-butterknife-mvp/tree/master-support-kotlin) 
+   [![Build Status](https://travis-ci.org/vestrel00/android-dagger-butterknife-mvp.svg?branch=master-support-kotlin)](https://travis-ci.org/vestrel00/android-dagger-butterknife-mvp)
 
   - Same as **master-support** except written in Kotlin.
+  - This branch is an extension of the **master-support** branch, containing all changes from 
+    **master-support**, which is then translated to Kotlin.
+  - Take a look at [PR #68](https://github.com/vestrel00/android-dagger-butterknife-mvp/pull/68) for
+    the main *Java -> Kotlin* translation of the **master** branch.
 
 **Why is the `minSdkVersion` of the non-support setup in master 17? Can it be lower?**
 
