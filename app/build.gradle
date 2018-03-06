@@ -23,7 +23,7 @@ android {
 
     defaultConfig {
         applicationId "com.vestrel00.daggerbutterknifemvp"
-        minSdkVersion 16
+        minSdkVersion 17
         targetSdkVersion 27
         versionCode 1
         versionName "1.0.0"
