@@ -3,8 +3,8 @@ jdk: oraclejdk8
 
 android:
   components:
-    - android-26
-    - build-tools-26.0.1
+    - android-27
+    - build-tools-27.0.3
 
 script:
   - ./gradlew build

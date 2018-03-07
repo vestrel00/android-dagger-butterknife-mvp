@@ -20,19 +20,20 @@ apply plugin: 'kotlin-kapt'
 
 android {
     compileSdkVersion 27
+    buildToolsVersion '27.0.3'
 
     defaultConfig {
         applicationId "com.vestrel00.daggerbutterknifemvp"
+        versionCode 1
+        versionName '1.0.0'
+
         minSdkVersion 17
         targetSdkVersion 27
-        versionCode 1
-        versionName "1.0.0"
 
         testInstrumentationRunner = "android.support.test.runner.AndroidJUnitRunner"
     }
 
     sourceSets {
-        // May no longer be needed in future versions of Android Studio or the Kotlin Gradle plugin?
         main.java.srcDirs += 'src/main/kotlin'
     }
 
@@ -46,8 +47,8 @@ dependencies {
     // There is a better way to declare and structure dependencies.
     // However, that is a different topic.
     def daggerVersion = '2.14.1'
-    def butterKnifeVersion = '8.8.0'
-    def kotlinVersion = '1.2.0'
+    def butterKnifeVersion = '8.8.1'
+    def kotlinVersion = '1.2.21'
 
     kapt "com.google.dagger:dagger-compiler:$daggerVersion"
     kapt "com.google.dagger:dagger-android-processor:$daggerVersion"
