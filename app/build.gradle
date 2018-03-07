@@ -19,16 +19,14 @@ apply plugin: 'kotlin-android'
 apply plugin: 'kotlin-kapt'
 
 android {
-    compileSdkVersion 26
-    buildToolsVersion '26.0.1'
+    compileSdkVersion 27
 
     defaultConfig {
         applicationId "com.vestrel00.daggerbutterknifemvp"
-        versionCode 1
-        versionName '1.0.0'
-
         minSdkVersion 17
-        targetSdkVersion 26
+        targetSdkVersion 27
+        versionCode 1
+        versionName "1.0.0"
 
         testInstrumentationRunner = "android.support.test.runner.AndroidJUnitRunner"
     }
@@ -47,7 +45,7 @@ android {
 dependencies {
     // There is a better way to declare and structure dependencies.
     // However, that is a different topic.
-    def daggerVersion = '2.14'
+    def daggerVersion = '2.14.1'
     def butterKnifeVersion = '8.8.0'
     def kotlinVersion = '1.2.0'
 
@@ -55,8 +53,8 @@ dependencies {
     kapt "com.google.dagger:dagger-android-processor:$daggerVersion"
     kapt "com.jakewharton:butterknife-compiler:$butterKnifeVersion"
 
-    compile "com.google.dagger:dagger:$daggerVersion"
-    compile "com.google.dagger:dagger-android:$daggerVersion"
-    compile "com.jakewharton:butterknife:$butterKnifeVersion"
-    compile "org.jetbrains.kotlin:kotlin-stdlib-jre7:$kotlinVersion"
+    implementation "com.google.dagger:dagger:$daggerVersion"
+    implementation "com.google.dagger:dagger-android:$daggerVersion"
+    implementation "com.jakewharton:butterknife:$butterKnifeVersion"
+    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlinVersion"
 }
