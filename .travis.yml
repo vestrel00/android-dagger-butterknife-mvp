@@ -8,3 +8,8 @@ android:
 
 script:
   - ./gradlew build
+
+before_install:
+  # Temporary workaround for android-27 license issues.
+  # See https://github.com/travis-ci/travis-ci/issues/8874#issuecomment-350350607
+  - yes | sdkmanager "platforms;android-27"
