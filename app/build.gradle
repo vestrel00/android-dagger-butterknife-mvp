@@ -17,8 +17,8 @@
 apply plugin: 'com.android.application'
 
 android {
-    compileSdkVersion 26
-    buildToolsVersion '26.0.1'
+    compileSdkVersion 27
+    buildToolsVersion '27.0.3'
 
     defaultConfig {
         applicationId "com.vestrel00.daggerbutterknifemvp"
@@ -26,7 +26,7 @@ android {
         versionName '1.0.0'
 
         minSdkVersion 14
-        targetSdkVersion 26
+        targetSdkVersion 27
 
         testInstrumentationRunner = "android.support.test.runner.AndroidJUnitRunner"
     }
@@ -40,17 +40,17 @@ android {
 dependencies {
     // There is a better way to declare and structure dependencies.
     // However, that is a different topic.
-    def daggerVersion = '2.14'
-    def butterKnifeVersion = '8.8.0'
-    def supportVersion = '26.0.1'
+    def daggerVersion = '2.14.1'
+    def butterKnifeVersion = '8.8.1'
+    def supportVersion = '27.1.0'
 
     annotationProcessor "com.google.dagger:dagger-compiler:$daggerVersion"
     annotationProcessor "com.google.dagger:dagger-android-processor:$daggerVersion"
     annotationProcessor "com.jakewharton:butterknife-compiler:$butterKnifeVersion"
 
-    compile "com.google.dagger:dagger:$daggerVersion"
-    compile "com.google.dagger:dagger-android:$daggerVersion"
-    compile "com.google.dagger:dagger-android-support:$daggerVersion"
-    compile "com.jakewharton:butterknife:$butterKnifeVersion"
-    compile "com.android.support:appcompat-v7:$supportVersion"
+    implementation "com.google.dagger:dagger:$daggerVersion"
+    implementation "com.google.dagger:dagger-android:$daggerVersion"
+    implementation "com.google.dagger:dagger-android-support:$daggerVersion"
+    implementation "com.jakewharton:butterknife:$butterKnifeVersion"
+    implementation "com.android.support:appcompat-v7:$supportVersion"
 }
