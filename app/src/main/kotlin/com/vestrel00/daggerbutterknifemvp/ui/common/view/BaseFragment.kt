@@ -65,7 +65,7 @@ abstract class BaseFragment : DialogFragment(), HasFragmentInjector {
      * The property `childFragmentManager` cannot be declared here with that name as it results in
      * an 'accidental override' compile-time error. Kotlin automatically generates getters for
      * properties. In this case, Kotlin generates a method called `getChildFragmentManager()` for
-     * the property `childFragmentManager`, which then conflicts with the Activity's
+     * the property `childFragmentManager`, which then conflicts with the Fragment's
      * `getChildFragmentManager()` method.
      *
      * There are workarounds to this;
@@ -98,8 +98,8 @@ abstract class BaseFragment : DialogFragment(), HasFragmentInjector {
     @SuppressWarnings("DEPRECATION")
     override fun onAttach(activity: Activity) {
         if (Build.VERSION.SDK_INT < Build.VERSION_CODES.M) {
-            // Perform injection here before M, L (API 22) and below because onAttach(Context)
-            // is not yet available at L.
+            // Perform injection here for versions before M as onAttach(*Context*) did not yet exist
+            // This fixes DaggerFragment issue: https://github.com/google/dagger/issues/777
             AndroidInjection.inject(this)
         }
         super.onAttach(activity)
@@ -107,7 +107,7 @@ abstract class BaseFragment : DialogFragment(), HasFragmentInjector {
 
     override fun onAttach(context: Context) {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
-            // Perform injection here for M (API 23) due to deprecation of onAttach(Activity).
+            // Perform injection here for M (API 23) due to deprecation of onAttach(*Activity*).
             AndroidInjection.inject(this)
         }
         super.onAttach(context)
