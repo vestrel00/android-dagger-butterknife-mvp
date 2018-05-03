@@ -95,8 +95,8 @@ public abstract class BaseFragment extends DialogFragment implements HasFragment
     @Override
     public void onAttach(Activity activity) {
         if (Build.VERSION.SDK_INT < Build.VERSION_CODES.M) {
-            // Perform injection here before M, L (API 22) and below because onAttach(Context)
-            // is not yet available at L.
+            // Perform injection here for versions before M as onAttach(*Context*) did not yet exist
+            // This fixes DaggerFragment issue: https://github.com/google/dagger/issues/777
             AndroidInjection.inject(this);
         }
         super.onAttach(activity);
@@ -105,7 +105,7 @@ public abstract class BaseFragment extends DialogFragment implements HasFragment
     @Override
     public void onAttach(Context context) {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
-            // Perform injection here for M (API 23) due to deprecation of onAttach(Activity).
+            // Perform injection here for M (API 23) due to deprecation of onAttach(*Activity*).
             AndroidInjection.inject(this);
         }
         super.onAttach(context);
