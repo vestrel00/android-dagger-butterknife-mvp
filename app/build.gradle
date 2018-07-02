@@ -49,7 +49,7 @@ dependencies {
     def daggerVersion = '2.14.1'
     def butterKnifeVersion = '8.8.1'
     def supportVersion = '27.1.0'
-    def kotlinVersion = '1.2.21'
+    def kotlinVersion = '1.2.50'
 
     kapt "com.google.dagger:dagger-compiler:$daggerVersion"
     kapt "com.google.dagger:dagger-android-processor:$daggerVersion"
