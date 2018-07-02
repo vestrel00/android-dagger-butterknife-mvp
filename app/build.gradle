@@ -60,5 +60,5 @@ dependencies {
     implementation "com.google.dagger:dagger-android-support:$daggerVersion"
     implementation "com.jakewharton:butterknife:$butterKnifeVersion"
     implementation "com.android.support:appcompat-v7:$supportVersion"
-    implementation "org.jetbrains.kotlin:kotlin-stdlib-jre7:$kotlinVersion"
+    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlinVersion"
 }
