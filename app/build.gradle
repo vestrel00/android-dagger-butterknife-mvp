@@ -42,7 +42,7 @@ dependencies {
     // However, that is a different topic.
     def daggerVersion = '2.14.1'
     def butterKnifeVersion = '8.8.1'
-    def supportVersion = '27.1.0'
+    def supportVersion = '27.1.1'
 
     annotationProcessor "com.google.dagger:dagger-compiler:$daggerVersion"
     annotationProcessor "com.google.dagger:dagger-android-processor:$daggerVersion"
