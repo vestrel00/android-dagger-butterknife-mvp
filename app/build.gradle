@@ -19,8 +19,8 @@ apply plugin: 'kotlin-android'
 apply plugin: 'kotlin-kapt'
 
 android {
-    compileSdkVersion 27
-    buildToolsVersion '27.0.3'
+    compileSdkVersion 28
+    buildToolsVersion '28.0.2'
 
     defaultConfig {
         applicationId "com.vestrel00.daggerbutterknifemvp"
@@ -28,7 +28,7 @@ android {
         versionName '1.0.0'
 
         minSdkVersion 17
-        targetSdkVersion 27
+        targetSdkVersion 28
 
         testInstrumentationRunner = "android.support.test.runner.AndroidJUnitRunner"
     }
