@@ -48,7 +48,7 @@ dependencies {
     // However, that is a different topic.
     def daggerVersion = '2.16'
     def butterKnifeVersion = '8.8.1'
-    def kotlinVersion = '1.2.50'
+    def kotlinVersion = '1.2.61'
 
     kapt "com.google.dagger:dagger-compiler:$daggerVersion"
     kapt "com.google.dagger:dagger-android-processor:$daggerVersion"
