@@ -82,6 +82,16 @@ It cannot be lower.
 No. The *dagger.android.support* API only supports `minSdkVersion` 
 [as low as 14](https://github.com/vestrel00/android-dagger-butterknife-mvp/pull/49/files#r133043880).
 
+## Notice
+
+1. As of API 28, fragments and all related fragment code have been deprecated in favor of the support
+ fragments in the support lib. Therefore, it is recommended that the 
+ [master-support](https://github.com/vestrel00/android-dagger-butterknife-mvp/tree/master-support) and 
+ [master-support-kotlin](https://github.com/vestrel00/android-dagger-butterknife-mvp/tree/master-support-kotlin) 
+ be used as reference instead of the [master](https://github.com/vestrel00/android-dagger-butterknife-mvp/tree/master) and 
+ [master](https://github.com/vestrel00/android-dagger-butterknife-mvp/tree/master) branches. _See
+ [issue #86](https://github.com/vestrel00/android-dagger-butterknife-mvp/issues/86)._
+
 ## Examples
 
 This demonstrates dagger.android, Butterknife, and MVP setup using 5 examples:
