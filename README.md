@@ -23,9 +23,8 @@ design patterns.
 
 ## Supported Versions
 
-This project now uses [Android Studio 3.2.0](https://developer.android.com/studio/archive.html) since
-[this upgrade](https://github.com/vestrel00/android-dagger-butterknife-mvp/issues/70). Previous versions
-of Android Studio (2.4/2.3.3 and below) will no longer be able to build this project.
+This project now uses [Android Studio 3.2.0-rc02](https://developer.android.com/studio/archive.html).
+Previous versions of Android Studio (2.4/2.3.3 and below) will no longer be able to build this project.
 
 The following major Dagger 2 and Butterknife versions works with this project;
 
