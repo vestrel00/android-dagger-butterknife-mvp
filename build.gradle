@@ -22,9 +22,9 @@ buildscript {
     }
 
     dependencies {
-        classpath 'com.android.tools.build:gradle:3.2.0-beta02'
+        classpath 'com.android.tools.build:gradle:3.2.0-rc02'
         classpath "com.jakewharton:butterknife-gradle-plugin:8.8.1"
-        classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:1.2.50"
+        classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:1.2.61"
     }
 }
 
