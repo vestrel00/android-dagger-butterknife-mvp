@@ -89,7 +89,7 @@ No. The *dagger.android.support* API only supports `minSdkVersion`
  [master-support](https://github.com/vestrel00/android-dagger-butterknife-mvp/tree/master-support) and 
  [master-support-kotlin](https://github.com/vestrel00/android-dagger-butterknife-mvp/tree/master-support-kotlin) 
  be used as reference instead of the [master](https://github.com/vestrel00/android-dagger-butterknife-mvp/tree/master) and 
- [master](https://github.com/vestrel00/android-dagger-butterknife-mvp/tree/master) branches. _See
+ [master-kotlin](https://github.com/vestrel00/android-dagger-butterknife-mvp/tree/master-kotlin) branches. _See
  [issue #86](https://github.com/vestrel00/android-dagger-butterknife-mvp/issues/86)._
 
 ## Examples
